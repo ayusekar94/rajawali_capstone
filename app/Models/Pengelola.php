@@ -12,9 +12,8 @@ class Pengelola extends Model
         'name',
         'email',
         'password',
+        'jenisKelamin',
         'alamat',
         'noHp',
-        'jenisKelamin',
-        'verify'
     ];
 }
