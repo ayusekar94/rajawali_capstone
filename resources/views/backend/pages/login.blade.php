@@ -5,21 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SIM RS </title>
-  <!-- plugins:css -->
-  {{-- <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" /> --}}
+  <title> RWWA </title>
   @include('backend/include/head')
 </head>
 
@@ -46,7 +32,7 @@
                             {{ session('error_password') }}
                         </div>
                         @endif
-              <form class="pt-3" method="post" action="/auth">
+              <form class="pt-3" method="post" action="/login">
                   @csrf
                 <div class="form-group">
                   <input name="email" type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
@@ -58,25 +44,17 @@
                   <label for="exampleFormControlSelect2">Select Role</label>
                   <select class="form-control" id="exampleFormControlSelect2" name="role">
                     <option value="admin">Admin</option>
-                    <option value="apoteker">Pengelola</option>
-                    <option value="dokter">User</option>
+                    <option value="pengelola">Pengelola</option>
+                    <option value="user">User</option>
                   </select>
                 </div>
+                <p>
+                  Belum punya akun?
+                  <a href="/register">silakan Sing up.</a>
+              </p>
                 <div class="mt-3">
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
-                {{-- <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                </div> --}}
               </form>
             </div>
           </div>

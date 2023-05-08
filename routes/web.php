@@ -28,7 +28,10 @@ Route::resource('/admin', AdminController::class);
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/user', UserController::class);
 
-Route::post('/auth',[AuthController::class,'store']);
+Route::get('/register', [AuthController::class, 'rindex']);
+Route::post('/register', [AuthController::class, 'rstore']);
+
+Route::post('/login',[AuthController::class,'store']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
