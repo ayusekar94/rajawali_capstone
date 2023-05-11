@@ -23,12 +23,22 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item nav-category" {{ (session('role')=="apoteker")? "style=display:block" : "style=display:none" }}>Apoteker</li>
-      <li class="nav-item" {{ (session('role')=="apoteker")? "style=display:block" : "style=display:none" }}>
-        <a class="nav-link" href="/obat">
-          <i class="menu-icon mdi mdi-pill"></i>
-          <span class="menu-title">Obat</span>
+      <li class="nav-item nav-category" {{ (session('role')=="pengelola")? "style=display:block" : "style=display:none" }}>Pengelola</li>
+      <li class="nav-item" {{ (session('role')=="pengelola")? "style=display:block" : "style=display:none" }}>
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" {{ (session('role')=="pengelola")? "aria-expanded=true" : "aria-expanded=false" }} aria-controls="ui-basic">
+          <i class="menu-icon mdi mdi-account-multiple"></i>
+          <span class="menu-title">Pengelola</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse {{ (session('role')=="pengelola")? "show" : "" }}" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{url('wisata')}}">Wisata</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('category')}}">Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('berita')}}">Berita</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('pesanan')}}">Pesanan</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('promosi')}}">Promosi</a></li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item nav-category" {{ (session('role')=="dokter")? "style=display:block" : "style=display:none" }}>Dokter</li>
       <li class="nav-item" {{ (session('role')=="dokter")? "style=display:block" : "style=display:none" }}>

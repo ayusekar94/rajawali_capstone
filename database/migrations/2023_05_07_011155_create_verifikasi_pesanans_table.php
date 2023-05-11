@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('verifikasi_pesanans', function (Blueprint $table) {
-            $table->id();
+            $table->id('verifikasi_id');
+            $table->string('name');
+            $table->timestamp('tanggal');
+            $table->boolean('status');
+            $table->bigInteger('jumlah');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }

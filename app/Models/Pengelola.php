@@ -16,4 +16,9 @@ class Pengelola extends Model
         'alamat',
         'noHp',
     ];
+
+    public function wisata()
+    {
+        return $this->hasMany(Wisata::class);
+    }
 }

@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id('category_id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::create('add_category_id_to_wisatas', function (Blueprint $table) {
+            $table->foreignId('category_id');
+            $table->foreign('category_id')->references('category_id')->on('categories');
         });
     }
 
@@ -27,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('wisatas', function (Blueprint $table) {
+            $table->dropColumn('category_id');
+        });
     }
 };
