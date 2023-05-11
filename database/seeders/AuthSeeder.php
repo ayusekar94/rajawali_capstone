@@ -31,9 +31,9 @@ class AuthSeeder extends Seeder
         );
         DB::table('pengelolas')->insert(
             [ // PENGELOLA
-            'name' => 'Dicky Mahessa',
-            'email' => 'dicky@gmail.com',
-            'password' => bcrypt('1234567890'),
+            'name' => 'Ida Fitrotun Khasanah',
+            'email' => 'pengelola@gmail.com',
+            'password' => bcrypt('123456'),
             'alamat' => $faker->address,
             'noHp' => '081276535467',
             'jenisKelamin' => 0,

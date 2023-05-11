@@ -25,7 +25,7 @@
                     <li class="nav-item">
                       <a class="nav-link">Dashboard</a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#pasien" role="tab" aria-selected="false">Pasien</a>
                     </li>
                     <li class="nav-item">
@@ -36,7 +36,7 @@
                     </li>
                     <li class="nav-item" style="display: none">
                       <a class="nav-link" id="more-tab" data-bs-toggle="tab" href="#transaksi" role="tab" aria-selected="false">Transaksi</a>
-                    </li> --}}
+                    </li>  -->
                   </ul>
                   <div>
                     <div class="btn-wrapper no-print">

@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wisatas', function (Blueprint $table) {
-            $table->id();
+            $table->id('wisata_id');
+            $table->string('image');
+            $table->string('name');
+            $table->string('description');
+            $table->string('rating');
+            $table->bigInteger('price');
+            $table->string('location');
             $table->timestamps();
         });
     }

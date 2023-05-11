@@ -17,4 +17,9 @@ class Pengelola extends Model
         'jenisKelamin',
         'verify'
     ];
+
+    public function wisata()
+    {
+        return $this->hasMany(Wisata::class);
+    }
 }

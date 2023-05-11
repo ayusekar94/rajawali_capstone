@@ -15,6 +15,7 @@ class DashboardController extends Controller
     public function index(){
         return view('backend.pages.dashboard', [
              'jml_admin' => DB::table('admins')->count(),
+             'jml_pengelola' => DB::table('pengelolas')->count(),
             //  'jml_apoteker' => DB::table('apotekers')->count(),
             //  'jml_dokter' => DB::table('dokters')->count(),
             //  'jml_karyawan' => DB::table('karyawans')->count(),
@@ -31,6 +32,7 @@ class DashboardController extends Controller
             //  'transaksi_berhasil' => Transaksi::where('status','1')->count(),
             //  'transaksi_pending' => Transaksi::where('status','0')->count(),
         ]);
+        
     }
 
 }

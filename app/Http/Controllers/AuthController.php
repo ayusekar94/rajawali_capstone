@@ -19,9 +19,9 @@ class AuthController extends Controller
     
     // Cek login
     public function store(Request $request){
-        
         //jika username ada
         switch($request->role){
+
             case "admin" :
                 $user = DB::table('admins')->where('email', $request->email)->first();
                 break;
@@ -32,7 +32,7 @@ class AuthController extends Controller
                 $user = DB::table('users')->where('email', $request->email)->first();
                 break;
         }
-
+        // dd($request->all())
         //jika password benar
         if($user){
             if(Hash::check($request->password,$user->password)){
