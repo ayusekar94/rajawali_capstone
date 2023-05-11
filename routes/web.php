@@ -35,3 +35,5 @@ Route::post('/login',[AuthController::class,'store']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/home', function () {return view('frontend/home/home');});
