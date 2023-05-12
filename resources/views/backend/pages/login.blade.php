@@ -50,12 +50,11 @@
                 </div>
                 <p>
                   Belum punya akun?
-                  <a href="/register">silakan Sing up.</a>
+                  <a href="/register">silakan Sign up.</a>
               </p>
                 <div class="mt-3">
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
-<<<<<<< HEAD
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
@@ -66,10 +65,8 @@
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                  Don't have an account? <a href="/register" class="text-primary">Create</a>
                 </div> 
-=======
->>>>>>> d22824c4705b7b86bc16ac4f42891144f00aff6d
               </form>
             </div>
           </div>
