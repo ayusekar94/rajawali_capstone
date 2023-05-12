@@ -27,13 +27,6 @@ Route::get('/', function () {
     return view('backend/pages/login');
 });
 
-// Route::get('/register', [AuthController::class, "register"])->name('register');
-// Route::get('/backend/pages2/login', [AuthController::class, "login"])->name('login');
-// Route::get('/logout', [AuthController::class, "logout"])->name('logout');
-
-// Route::post('/register', [AuthController::class, "doRegister"])->name('do.register');
-// Route::post('/backend/pages2/login', [AuthController::class, "doLogin"])->name('do.login');
-
 // Admin
 Route::resource('/admin', AdminController::class);
 Route::resource('/pengelola', PengelolaController::class);

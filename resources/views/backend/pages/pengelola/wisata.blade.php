@@ -14,9 +14,6 @@
             <thead>
               <tr>
                 <th>
-                  No
-                </th>
-                <th>
                   Nama Wisata
                 </th>
                 <th>
@@ -46,31 +43,31 @@
               @foreach ($item as $i)
               <tr>
                 <td>
-                  {{ $i->no }}
-                </td>
-                <td>
                   {{ $i->name }}
                 </td>
-                <img src="{{ asset($item->image) }}" class="img-thumbnail" style="width:400px" />
                 <td>
-                  {{ $i-> description}}
+                  <img width="60px" height="60px" src="{{ Storage::url('gambar/').$i->image }}" >
+                </td>
+                
+                <td>
+                  {{ $i->description}}
                 </td>
                 <td>
-                  {{ $i-> rating}}
+                  {{ $i->rating}}
                 </td>
                 <td>
-                  {{ $i-> price}}
+                  {{ $i->price}}
                 </td>
                 <td>
-                  {{ $i-> location}}
+                  {{ $i->location}}
                 </td>
                 <td>
-                  {{ $item->category->name }}
+                  {{ $i->category_id }}
                 </td>
                 <td>
-                  <form action="/wisata/{{ $i->id }}" method="POST">
+                  <form action="/wisata/{{ $i->wisata_id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/wisata/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/wisata/{{ $i->wisata_id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}

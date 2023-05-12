@@ -22,15 +22,15 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($category as $i)
+              @foreach ($categorys as $i)
               <tr>
                 <td>
                   {{ $i->name }}
                 
                 <td>
-                  <form action="/category/{{ $i->id }}" method="POST">
+                  <form action="/category/{{ $i->category_id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/category/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/category/{{ $i->category_id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}

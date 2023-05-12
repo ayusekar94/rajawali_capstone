@@ -5,7 +5,8 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Tambah Pengelola</h4>
-      <form class="form-sample" method="POST" action="/pengelola">@csrf
+      <form class="form-sample" method="POST" action="/pengelola">
+        @csrf
         <p class="card-description">
           Personal info 
         </p>

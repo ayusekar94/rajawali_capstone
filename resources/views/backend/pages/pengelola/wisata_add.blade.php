@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
              <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="deskripsi" placeholder="deskripsi">
+            <input type="text" class="form-control" id="exampleInputEmail1" name="description" placeholder="deskripsi">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Rating</label>
@@ -42,7 +42,7 @@
             <select class="form-select @error('category_id') is-invalid @enderror" aria-label="Default select example"
             name="category_id">
             @foreach ($category as $item)
-                <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->name }}</option>
+                <option value="{{ $item->category_id }}">{{ $item->category_id }} - {{ $item->name }}</option>
             @endforeach
             </select>
             @error('category_id')

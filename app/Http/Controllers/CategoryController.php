@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('backend.pages.pengelola.category',[
-            'category' => DB::table('categories')->paginate(10),
+            'categorys' => DB::table('categories')->paginate(10),
             'title' => 'Category',
        ]);  
     }
@@ -40,11 +40,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'category_name' => 'required'
+            'name' => 'required'
         ]);
 
         Category::create([
-            'name' => $validated['category_name']
+            'name' => $validated['name']
         ]);
 
         return redirect('/category');
@@ -72,7 +72,7 @@ class CategoryController extends Controller
         $data ['title'] = 'Edit Produk';
         $data['category'] = Category::find($id);
 
-        return view('backend.pages.category_edit', $data);
+        return view('backend.pages.pengelola.category_edit', $data);
     }
 
     /**

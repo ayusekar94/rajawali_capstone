@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Wisata;
@@ -14,9 +16,9 @@ class WisataController extends Controller
      */
     // DASHBOARD
     public function index(){
-        // $data ['title'] = 'Wisata'; 
-        // $data['wisata'] = Wisata::all(); 
- 
+        // $data ['title'] = 'Wisata';
+        // $data['item'] = Wisata::with('category')->get();
+
         // return view('backend.pages.pengelola.wisata', $data);
         return view('backend.pages.pengelola.wisata',[
              'item' => DB::table('wisatas')->paginate(10),
@@ -32,7 +34,10 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.pengelola.wisata_add');
+        $data ['title'] = 'Tambah Data Produk';
+        $data['category'] = Category::all();
+
+        return view('backend.pages.pengelola.wisata_add', $data);
     }
 
     /**
@@ -43,9 +48,7 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
-        dd($request->all()); 
+        // dd($request->all()); 
         $request->validate([ 
             'name' => 'required', 
             'image'=> 'required|image|file|max:1024',
@@ -59,20 +62,17 @@ class WisataController extends Controller
         //upload image 
         $image = $request->file('image'); 
         $image->storeAs('gambar', $image->hashName());
-        // $image = $request->image;
-        // $slug = Str::slug($image->getClientOriginalName());
-        // $new_image = time() .'_'. $slug;
-        // $image->move('storage/image/', $new_image);
 
-        // $wisata = new Wisata();
-        // $wisata->name = $request->name;
-        // $wisata->image = 'storage/image/'. $new_image;
-        // $wisata->description = $request->description;
-        // $wisata->price = $request->stok;
-        // $wisata->rating = $request->rating;
-        // $wisata->location = $request->location;
-        // $wisata->category_id = $request->category_id;
-        // $wisata->save;
+        Wisata::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'rating' =>$request->rating,
+            'price' =>$request->price,
+            'location' =>$request->location,
+            'category_id' =>$request->category_id,
+            'image' =>$image->hashName()
+        ]);
+
         
         return redirect('wisata');
         // return redirect()->intended('wisata');
