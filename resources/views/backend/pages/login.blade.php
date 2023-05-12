@@ -65,8 +65,13 @@
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
+<<<<<<< HEAD
                   Don't have an account? <a href="/register" class="text-primary">Create</a>
                 </div> 
+=======
+                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                </div>
+>>>>>>> e2456f2e15597fe7471fddd44aeda0ec12198a30
               </form>
             </div>
           </div>

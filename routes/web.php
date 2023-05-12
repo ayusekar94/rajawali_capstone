@@ -27,30 +27,26 @@ Route::get('/', function () {
     return view('backend/pages/login');
 });
 
-// Route::get('/register', [AuthController::class, "register"])->name('register');
-// Route::get('/backend/pages2/login', [AuthController::class, "login"])->name('login');
-// Route::get('/logout', [AuthController::class, "logout"])->name('logout');
+// Login & Register
+Route::get('/register', [AuthController::class, 'rindex']);
+Route::post('/register', [AuthController::class, 'rstore']);
+Route::post('/login',[AuthController::class,'store']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route::post('/register', [AuthController::class, "doRegister"])->name('do.register');
-// Route::post('/backend/pages2/login', [AuthController::class, "doLogin"])->name('do.login');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Admin
 Route::resource('/admin', AdminController::class);
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/user', UserController::class);
 
-Route::get('/register', [AuthController::class, 'rindex']);
-Route::post('/register', [AuthController::class, 'rstore']);
 
-Route::post('/login',[AuthController::class,'store']);
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Pengelola
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
+Route::resource('/category', CategoryController::class);
 
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
 
@@ -63,8 +59,4 @@ Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Category
-
-Route::resource('/category', CategoryController::class);

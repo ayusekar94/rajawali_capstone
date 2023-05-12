@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wisata extends Model
 {
-    use HasFactory;
-    protected $table = "wisata";
+    
     protected $fillable = [
         'image',
         'name',
-        'deskripsi',
+        'description',
         'price',
         'rating',
         'location',
