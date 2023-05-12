@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('verifikasi_pesanans', function (Blueprint $table) {
             $table->id('verifikasi_id');
+            $table->foreignId('cart_id');
+            $table->foreign('cart_id')->references('cart_id')->on('carts');
+            $table->foreignId('transaksi_id');
+            $table->foreign('transaksi_id')->references('transaksi_id')->on('transaksis');
             $table->string('name');
             $table->timestamp('tanggal');
             $table->boolean('status');

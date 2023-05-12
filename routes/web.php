@@ -27,23 +27,26 @@ Route::get('/', function () {
     return view('backend/pages/login');
 });
 
-// Admin
-Route::resource('/admin', AdminController::class);
-Route::resource('/pengelola', PengelolaController::class);
-Route::resource('/user', UserController::class);
-
+// Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
 Route::post('/register', [AuthController::class, 'rstore']);
-
 Route::post('/login',[AuthController::class,'store']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+// Admin
+Route::resource('/admin', AdminController::class);
+Route::resource('/pengelola', PengelolaController::class);
+Route::resource('/user', UserController::class);
+
+
+
 // Pengelola
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
+Route::resource('/category', CategoryController::class);
 
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
 
@@ -56,8 +59,4 @@ Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Category
-
-Route::resource('/category', CategoryController::class);
