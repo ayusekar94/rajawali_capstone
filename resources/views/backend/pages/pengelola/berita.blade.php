@@ -41,12 +41,6 @@
                 <td>
                   {{ $i-> description}}
                 </td>
-                <!-- <td>
-                  <i class="menu-icon mdi mdi-phone"></i>
-                  {{ $i->noHp }} <hr>
-                  <i class="menu-icon mdi mdi-home-map-marker"></i>
-                  {{ $i->alamat }}
-                </td> -->
                 <td>
                   <form action="/berita/{{ $i->id }}" method="POST">
                     {{-- Update  --}}

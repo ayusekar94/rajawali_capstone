@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id('wisata_id');
+            $table->foreignId('category_id');
+            $table->foreign('category_id')->references('category_id')->on('categories');
             $table->string('image');
             $table->string('name');
             $table->string('description');

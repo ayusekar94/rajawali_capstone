@@ -4,7 +4,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Daftar Wisata Wonosobo</h4>
+        <h4 class="card-title">Kategori Wisata Wonosobo</h4>
         <p class="card-description">
           <a href="/category/create" class="btn btn-primary float-end btn-sm" style="margin-right: 10px">+ Tambah</a><br>
         </p>
