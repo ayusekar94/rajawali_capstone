@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengelolaController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VerifikasiPesananController;
 use App\Http\Controllers\DashboardController;
 
 
@@ -47,16 +48,15 @@ Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
 Route::resource('/category', CategoryController::class);
-
-// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
-
-
-// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
+Route::resource('/pesanan', VerifikasiPesananController::class);
 
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
-
-
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
+// verifikasi pembayaran
+Route::get('/verify', [TransactionController::class, 'verify']);
+Route::get('/block', [TransactionController::class, 'block']);
+
+Route::post('/pesan/{id}', [VerifikasiPesananController::class, 'pesan']);
 
 

@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use App\Models\Category;
 
-class CategoryController extends Controller
+use App\Models\VerifikasiPesanan;
+use Illuminate\Http\Request;
+use App\Models\Wisata;
+use App\Models\Cart;
+
+class VerifikasiPesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.pengelola.category',[
-            'categorys' => DB::table('categories')->paginate(10),
-            'title' => 'Category',
-       ]);  
+        $data ['title'] = 'Pesanan';
+        $data['verifikasi_pesanans'] = VerifikasiPesanan::with('wisata')->get();
+        $data['verifikasi_pesanans'] = VerifikasiPesanan::with('cart')->get();
+
+        return view('backend.pages.pengelola.pesanan', $data);
+
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.pengelola.category_add');
+        //
     }
 
     /**
@@ -39,16 +42,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-
-            'name' => 'required'
-        ]);
-
-        Category::create([
-            'name' => $validated['name']
-        ]);
-
-        return redirect('/category');
+        //
     }
 
     /**
@@ -70,16 +64,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-            return view("backend.pages.pengelola.category_edit",[
-                'title' => 'Pengelola - Edit category',
-                'item' => Category::find($id),
-            ]);
-            
-
-        // $data ['title'] = 'Edit Produk';
-        // $data['category'] = Category::find($id);
-
-        // return view('backend.pages.pengelola.category_edit', $data);
+        //
     }
 
     /**
@@ -91,17 +76,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-           
-            'category_name' => 'required'
-        ]);
-
-        Category::where('id', $id)->update([
-            
-            'name' => $validated['category_name']
-        ]);
-
-        return redirect('/category');
+        //
     }
 
     /**
@@ -112,7 +87,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
-        return redirect('/category')->with(['success' => 'Data Berhasil Dihapus!']);
+        //
     }
 }

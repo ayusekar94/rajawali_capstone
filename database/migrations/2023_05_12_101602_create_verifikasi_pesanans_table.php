@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('verifikasi_pesanans', function (Blueprint $table) {
-            $table->id('verifikasi_id');
-            $table->foreignId('cart_id');
-            $table->foreign('cart_id')->references('cart_id')->on('carts');
-            $table->foreignId('transaksi_id');
-            $table->foreign('transaksi_id')->references('transaksi_id')->on('transaksis');
+            $table->id();
+            $table->unsignedBigInteger('id_cart');
+            $table->foreign('id_cart')->references('id')->on('carts');
+            $table->unsignedBigInteger('id_wisata');
+            $table->foreign('id_wisata')->references('id')->on('wisatas');
             $table->string('name');
             $table->timestamp('tanggal');
             $table->boolean('status');
             $table->bigInteger('jumlah');
-            $table->bigInteger('price');
+            $table->bigInteger('jumlah_harga');
             $table->timestamps();
         });
     }
@@ -35,6 +35,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verifikasi_pesanans');
+        Schema::table('verifikasi_pesanans', function (Blueprint $table){
+            $table->dropColumn('id_cart');
+            $table->dropColumn('id_wisata');
+        });
     }
 };

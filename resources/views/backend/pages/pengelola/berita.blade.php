@@ -13,9 +13,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>
-                 No
-                </th>
+                
                 <th>
                   Berita
                 </th>
@@ -31,13 +29,15 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($item as $i)
+                
+              @foreach ($berita as $i)
               <tr>
                 <td>
-                  {{ $i->no }}
+                  {{ $i->name }}
                 </td>
+                <td>
+                <img width="60px" height="60px" src="{{ Storage::url('gambar/').$i->image }}" >
                 </td>
-                <img src="{{ asset($item->image) }}" class="img-thumbnail" style="width:400px" />
                 <td>
                   {{ $i-> description}}
                 </td>

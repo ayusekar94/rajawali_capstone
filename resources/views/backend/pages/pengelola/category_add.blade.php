@@ -4,11 +4,12 @@
 <div class="col-12 grid-margin">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Tambah Pengguna</h4>
+      <h4 class="card-title">Edit Category</h4>
       <form class="form-sample" method="POST" action="/category">@csrf
         <p class="card-description">
-          Personal info 
+          Informasi Kategori Wisata Wonosobo
         </p>
+        
         <div class="row">
           <div class="col-md-6">
             <div class="form-group row">
