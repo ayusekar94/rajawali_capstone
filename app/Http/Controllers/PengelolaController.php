@@ -10,6 +10,7 @@ class PengelolaController extends Controller
 {
     public function __construct(){
         return $this->middleware('admin') && $this->middleware('login');
+       
     }
     
     // DASHBOARD
@@ -17,12 +18,16 @@ class PengelolaController extends Controller
         return view('backend.pages.admin.pengelola',[
              'item' => DB::table('pengelolas')->paginate(10),
              'title' => 'Pengelola'
-        ]);  
+        ]);
+        //========================
+        
+        
      }
  
      // Tampilan Create Admin
      public function create(){
          return view('backend.pages.admin.pengelola_add');
+         
      }
  
      // Create Admin
@@ -50,6 +55,7 @@ class PengelolaController extends Controller
              'title' => 'Admin - Edit pengelola',
              'item' => Pengelola::find($id),
          ]);
+         
      }
          
      // Simpan Hasil Edit

@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_category');
+            $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade');
+// <<<<<<< HEAD
+// =======
+            // $table->foreign('id_category')->references('id_category')->on('categories')->onDelete('cascade');
+// >>>>>>> e2456f2e15597fe7471fddd44aeda0ec12198a30
+            $table->string('image');
+            $table->string('name');
+            $table->text('description')->nullable(true);
+            $table->string('rating');
+            $table->unsignedInteger('price')->default(0);
+            $table->string('location');
             $table->timestamps();
         });
     }
@@ -26,6 +38,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wisatas');
+        Schema::table('wisatas', function (Blueprint $table){
+            $table->dropColumn('id_category');
+        });
     }
 };
