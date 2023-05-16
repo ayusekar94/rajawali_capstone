@@ -59,4 +59,7 @@ Route::get('/block', [TransactionController::class, 'block']);
 
 Route::post('/pesan/{id}', [VerifikasiPesananController::class, 'pesan']);
 
-
+// coba home
+Route::get('/home', function () {
+    return view('frontend/home/home');
+});

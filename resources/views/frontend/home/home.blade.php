@@ -100,9 +100,19 @@
         <div class="container text-center">
             <div class="row margin-bottom-xlg">
                 <h2 class="text-center margin-bottom-lg fw-bold">Title</h2>
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <div class="box bg-body-secondary">
-                        <img class="" src="https://www.sololearn.com/Icons/Courses/1051.png">
+                        <img class="" src="https://www.its.ac.id/aktuaria/wp-content/uploads/sites/100/2018/03/user.png">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolore vitae cupiditate.</p>
+                    </div>
+                    <div class="box bg-body-secondary">
+                        <img class="" src="https://www.its.ac.id/aktuaria/wp-content/uploads/sites/100/2018/03/user.png">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolore vitae cupiditate.</p>
+                    </div>
+                    <div class="box bg-body-secondary">
+                        <img class="" src="https://www.its.ac.id/aktuaria/wp-content/uploads/sites/100/2018/03/user.png">
                         <h3>Title</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolore vitae cupiditate.</p>
                     </div>
@@ -113,5 +123,5 @@
 </section>
 
 
- 
+
 @endsection

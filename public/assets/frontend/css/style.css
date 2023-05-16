@@ -990,12 +990,12 @@ a.button:hover {
 	height: 340px;
 	float: left;
 	text-align: center;
-	margin-right:39px;
+	margin: 10px;
 	border-radius: 7px;
 }
 .box a{
-    padding: 20px 20px 0;
-    display: block;
+    padding: 20px 30px 0;
+    display: inline-flex;
     text-decoration: none;
 }
 .box img{
@@ -1008,8 +1008,117 @@ a.button:hover {
 	font-size:small;
 	line-height: 25px;
     margin-top: 5px;
-    
+
 }
 .box a h2,.box a p{
 	color: #000;
+}
+
+/* footer */
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-section {
+  background: #121921;
+  position: relative;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.footer-widget ul li {
+  display: inline-flex;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #0295d5;
+}
+.footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+  text;
+}
+.copyright-area{
+  background: #202020;
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+}
+.copyright-text p a{
+  color: #0295d5;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #0295d5;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
 }

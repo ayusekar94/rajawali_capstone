@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid mx-5">
       <a class="navbar-brand" href="#"></a>
       <img src="{{ asset('assets/frontend/css/images/LogoTextnew.png') }}" alt="Logo" width="120" height="70" class="d-inline-block align-text-top">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
