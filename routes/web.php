@@ -61,5 +61,13 @@ Route::post('/pesan/{id}', [VerifikasiPesananController::class, 'pesan']);
 
 // coba home
 Route::get('/home', function () {
-    return view('frontend/home/home');
+    return view('frontend/pages/home');
+});
+
+Route::get('/infoberita', function () {
+    return view('frontend/pages/infoberita');
+});
+
+Route::get('/detailberita', function () {
+    return view('frontend/pages/detailberita');
 });
