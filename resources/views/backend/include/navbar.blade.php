@@ -7,7 +7,7 @@
       </div>
       <div>
         <a class="navbar-brand brand-logo" href="index.html">
-          <img src="{{ asset('assets/images/logo.svg')}}" alt="logo" /> RWWA
+          <img src="{{ asset('assets/images/logo.PNG')}}" alt="logo" /> RWWA
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
           <img src="{{ asset('assets/images/logo.svg')}}" alt="logo" />
@@ -17,7 +17,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top"> 
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{ session('name') }}</span></h1>
+          <h1 class="welcome-text">Hello ! Welcome, <span class="text-black fw-bold">{{ session('name') }}</span></h1>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">

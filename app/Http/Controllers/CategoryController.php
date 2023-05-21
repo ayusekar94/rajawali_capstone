@@ -40,6 +40,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+
             'name' => 'required'
         ]);
 
@@ -69,10 +70,16 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data ['title'] = 'Edit Produk';
-        $data['category'] = Category::find($id);
+            return view("backend.pages.pengelola.category_edit",[
+                'title' => 'Pengelola - Edit category',
+                'item' => Category::find($id),
+            ]);
+            
 
-        return view('backend.pages.pengelola.category_edit', $data);
+        // $data ['title'] = 'Edit Produk';
+        // $data['category'] = Category::find($id);
+
+        // return view('backend.pages.pengelola.category_edit', $data);
     }
 
     /**
@@ -85,10 +92,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
+           
             'category_name' => 'required'
         ]);
 
         Category::where('id', $id)->update([
+            
             'name' => $validated['category_name']
         ]);
 
@@ -104,6 +113,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect('/category');
+        return redirect('/category')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

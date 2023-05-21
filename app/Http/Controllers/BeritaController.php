@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Berita;
+use App\Models\Wisata;
 
 class BeritaController extends Controller
 {
@@ -15,7 +16,7 @@ class BeritaController extends Controller
     public function index()
     {
         return view('backend.pages.pengelola.berita',[
-            'item' => DB::table('beritas')->paginate(10),
+            'berita' => DB::table('beritas')->paginate(10),
             'title' => 'Berita'
        ]); 
     }
@@ -27,6 +28,10 @@ class BeritaController extends Controller
      */
     public function create()
     {
+        // $data ['title'] = 'Tambah Berita Wisata';
+        // $data['berita'] = Berita::all();
+
+        // return view('backend.pages.pengelola.berita_add', $data);
         return view('backend.pages.pengelola.berita_add');
     }
 
@@ -39,19 +44,21 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_berita' => 'required',
+            'name' => 'required',
             'image'=> 'required|image|mimes:png,jpg|max:2040',
-            'deskripsi' => 'required',
-            'wisata_id' => 'required',
-            'category_id' => 'required',
+            'description' => 'required',
+            
         ]);
         //=======================
 
+        //upload image 
+        $image = $request->file('image'); 
+        $image->storeAs('gambar', $image->hashName());
+
         Berita::create([
-            'name' => $validated['nama_berita'],
-            'deskripsi' => $validated['deskripsi'],
-            'wisata_id' => $validated['wisata_id'],
-            'category_id' => $validated['category_id'],
+            'name' => $request->name,
+            'image' =>$image->hashName(),
+            'description' => $request->description,
         ]);
 
         return redirect()->intended('/berita');
@@ -92,19 +99,17 @@ class BeritaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama_berita' => 'required',
+            'name' => 'required',
             'image'=> 'required|image|mimes:png,jpg|max:2040',
-            'deskripsi' => 'required',
-            'wisata_id' => 'required',
-            'category_id' => 'required',
+            'description' => 'required',
+            
         ]);
 
         Berita::where('id', $id)->update([
-            'name' => $validated['nama_berita'],
-            'deskripsi' => $validated['deskripsi'],
-            'wisata_id' => $validated['wisata_id'],
-            'category_id' => $validated['category_id'],
-
+            'name' => $validated['name'],
+            'image' => $validated['image'],
+            'description' => $validated['description'],
+            
         ]);
         return redirect("/berita");
     }
@@ -118,6 +123,6 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         Berita::destroy($id);
-        return redirect("/berita");
+        return redirect("/berita")->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

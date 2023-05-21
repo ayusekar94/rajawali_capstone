@@ -40,13 +40,13 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($item as $i)
+              @foreach ($wisatas as $i)
               <tr>
                 <td>
                   {{ $i->name }}
                 </td>
                 <td>
-                  <img width="60px" height="60px" src="{{ Storage::url('gambar/').$i->image }}" >
+                  <img width="60px" height="60px" src="{{ Storage::url('image/').$i->image }}" >
                 </td>
                 
                 <td>
@@ -62,12 +62,12 @@
                   {{ $i->location}}
                 </td>
                 <td>
-                  {{ $i->category_id }}
+                   {{$i->category->name }}
                 </td>
                 <td>
-                  <form action="/wisata/{{ $i->wisata_id }}" method="POST">
+                  <form action="/wisata/{{ $i->id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/wisata/{{ $i->wisata_id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/wisata/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}

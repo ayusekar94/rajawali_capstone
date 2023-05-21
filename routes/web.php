@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengelolaController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VerifikasiPesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
@@ -49,18 +50,20 @@ Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
+
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
+
+
 // Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
+
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
-// Route::group(['middleware' => ['auth','user']], function() {
-    // User
-    Route::get('profile', [PenggunaController::class, 'index']);
-    Route::post('profile', [PenggunaController::class, 'update']);
-// });
 
+Route::get('/infoberita', function () {
+    return view('frontend/pages/infoberita');
+});
 
-
-
-
+Route::get('/detailberita', function () {
+    return view('frontend/pages/detailberita');
+});

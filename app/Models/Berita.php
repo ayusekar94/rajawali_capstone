@@ -14,12 +14,4 @@ class Berita extends Model
         'description',
     ];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-    public function wisata()
-    {
-        return $this->belongsTo(Wisata::class);
-    }
 }

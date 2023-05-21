@@ -18,6 +18,7 @@
               <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Wisata</th>
                     <th>Tanggal</th>
                     <th>Status</th>
                     <th>Jumlah</th>
@@ -25,7 +26,7 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach ($transaction as $item)
+                @foreach ($verifikasi_pesanans as $item)
                   <tr>
                     <td>{{ $item->cart->user->name }}</td>
                     <td>{{ $item->wisata->name}}</td>
@@ -50,7 +51,6 @@
                     <td align="right">Rp. {{ number_format($item->jumlah_harga-$item->cart->kode) }}</td>
                   </tr>
                 @endforeach
-                <td>{{ $item->harga}}</td>
               </tbody>
           </table>
       </div>
