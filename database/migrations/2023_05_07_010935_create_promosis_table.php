@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('promosis', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('image');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
