@@ -15,15 +15,12 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('tanggal');
             $table->string('status');
             $table->integer('kode');
             $table->integer('jumlah_harga');
-=======
->>>>>>> 532b90912c86b32efbf468ae600cfe9ce1490c4c
             $table->timestamps();
         });
     }
