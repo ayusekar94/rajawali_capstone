@@ -10,13 +10,20 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    // login
+    public function lindex(){
+        $data ['title'] = 'Login';
+
+        return view('backend.pages.login', $data);
+    }
+
     // Halaman Login
     public function login(){
         if(session('isLogin') == true){
             return redirect('/dashboard');
         }
         
-        return view('/');
+        return view('/login');
     }
     
     // Cek login

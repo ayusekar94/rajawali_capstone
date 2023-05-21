@@ -19,7 +19,6 @@ class PengelolaController extends Controller
              'item' => DB::table('pengelolas')->paginate(10),
              'title' => 'Pengelola'
         ]);
-        //========================
         
         
      }

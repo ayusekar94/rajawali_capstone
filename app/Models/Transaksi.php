@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    use HasFactory;
+    public function wisata()
+	{
+	      return $this->belongsTo(Wisata::class);
+	}
+
+	public function cart()
+	{
+	      return $this->belongsTo(Cart::class);
+	}
 }

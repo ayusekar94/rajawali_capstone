@@ -74,7 +74,7 @@ class UserController extends Controller
          $user->save();
          
          // toast('Your data has been saved!','success');
-         return redirect("/admin"); // untuk diarahkan kemana
+         return redirect("/user"); // untuk diarahkan kemana
      }
  
      // Hapus Data User
@@ -82,6 +82,6 @@ class UserController extends Controller
          User::destroy($id);
          // Session::flash('hapussuccess', 'Data berhasil dihapus!');
          // toast('Your data has been deleted!','success');
-         return redirect("/admin"); // untuk diarahkan kemana
+         return redirect("/user"); // untuk diarahkan kemana
      }
 }
