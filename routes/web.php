@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
@@ -50,6 +51,9 @@ Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
+
+// User
+Route::get('profile', PenggunaController::class, '');
 
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
 

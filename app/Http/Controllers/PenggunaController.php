@@ -9,17 +9,34 @@ use Illuminate\Support\Facades\Hash;
 
 class PenggunaController extends Controller
 {
-    // public function __construct(){
-    //     return $this->middleware('user') && $this->middleware('login');
-    // }
+    public function __construct()
+    {
+        return $this->middleware('user') && $this->middleware('login');
+    }
 
-    public function index(){
-        $data ['title'] = 'Riwayat';
-        $data ['user'] = User::where('id', Auth::user()->id)->first();
-        // $data ['user'] = User::where('id', Auth::user()->id)->first(); 
+    public function __invoke(Request $request)
+    {
+        $data ['title'] = 'Profile User';
+    	$data ['user'] = User::where('id', session('id'))->first();
 
     	return view('backend.pages.user.profile', $data);
     }
+
+    public function index()
+    {
+        $data ['title'] = 'Profile User';
+    	$data ['user'] = User::where('id', Auth::user()->id)->first();
+
+    	return view('backend.pages.user.profile', $data);
+    }
+    // public function index(){
+        
+    //     $data ['title'] = 'Riwayat';
+    //     $data ['user'] = User::where('id', Auth::user()->id)->first();
+    //     // $data ['user'] = User::where('id', Auth::user()->id)->first(); 
+
+    // 	return view('backend.pages.user.profile', $data);
+    // }
      // Edit profile - Role User
 	// public function profil($id)
     // {
