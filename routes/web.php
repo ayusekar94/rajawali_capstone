@@ -47,6 +47,8 @@ Route::resource('/user', UserController::class);
 // Pengelola
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
+Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
+Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
@@ -54,17 +56,6 @@ Route::resource('/category', CategoryController::class);
 // User
 Route::get('profile', PenggunaController::class, '');
 
-// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
-
-
-// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
-
-Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
-Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
-
-Route::get('/home', function () {
-    return view('frontend/pages/home');
-});
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
