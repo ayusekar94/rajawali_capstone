@@ -63,6 +63,9 @@ Route::get('profile', PenggunaController::class, '');
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
+Route::get('/home', function () {
+    return view('frontend/pages/home');
+});
 
 Route::get('/infoberita', function () {
     return view('frontend/pages/infoberita');
