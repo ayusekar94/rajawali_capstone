@@ -7,27 +7,43 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="{{ url('/home') }}" class="nav-link {{ request()->is('/') ? ' active-link' : '' }}">
-                <span>Home</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
+          @guest
+            <li class="nav-item">
+              <a href="{{ url('/') }}" class="nav-link {{ request()->is('/') ? ' active-link' : '' }}">
+                  <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/infoBerita">Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/infoWisata">Wisata</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+          @endguest
+          @auth
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome, {{ session('name') }}
+              </a>
+              <ul class="dropdown-menu" {{ (session('role')=="admin") }}>
+                <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+              <ul class="dropdown-menu" {{ (session('role')=="pengelola") }}>
+                <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+              <ul class="dropdown-menu" {{ (session('role')=="user") }}>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li> 
+          @endauth
         </ul>
       </div>
     </div>

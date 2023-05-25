@@ -2,32 +2,33 @@
     <div class="container p-0">
       <div class="row">
         <div class="col-xs-6 col-md-2">
-          <h6>Title</h6>
+          <h6>Links</h6>
           <ul class="footer-links">
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
+            <li class="active" ><a href="/">Home</a></li>
+            <li><a href="#AboutMe">About Me</a></li>
+            <li><a href="#">Wisata</a></li>
+            <li><a href="/infoBerita">Berita</a></li>
+            <li><a href="">Testimoni</a></li>
           </ul>
         </div>
 
         <div class="col-xs-6 col-md-2">
-          <h6>Title</h6>
+          <h6>Tools</h6>
           <ul class="footer-links">
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
+            <li><a href="">Riwayat</a></li>
+            <li><a href="">Pesanan</a></li>
+            <li><a href="">Profie</a></li>
           </ul>
         </div>
 
         <div class="col-sm-12 col-md-3">
-            <h6>Title</h6>
-            <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad veniam nemo laudantium maxime blanditiis minus voluptate quibusdam harum necessitatibus porro.</p>
+            <h6>Tentang</h6>
+            <p style="text-align: justify;">Wisata Alam merupakan salah satu objek yang berkaitan dengan rekreasi dan pariwisata yang memanfaatkan potensi sumber daya alam dan ekosistemnya.</p>
         </div>
 
         <div class="col-sm-12 col-md-3">
-            <h6>Title</h6>
-            <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h6>Contact Me</h6>
+            <p style="text-align: justify;">Bisa Menghubungi kami melalui link sosial media dibawah ini.</p>
             <hr>
             <ul class="social-icons d-flex justify-content-center">
                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>

@@ -13,7 +13,7 @@ use App\Http\Controllers\VerifikasiPesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
-
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -26,10 +26,9 @@ use App\Http\Controllers\PromosiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('backend/pages/login');
-// });
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('HomePage');
+Route::get('/infoBerita', [HomeController::class, 'bindex']);
 
 // Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
@@ -64,10 +63,14 @@ Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
 
-Route::get('/infoberita', function () {
-    return view('frontend/pages/infoberita');
-});
-
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
+});
+
+// coba Profil user
+Route::get('/profiluser', function () {
+    return view('frontend/profil/user');
+});
+Route::get('/transaksi', function () {
+    return view('frontend/transaksi');
 });

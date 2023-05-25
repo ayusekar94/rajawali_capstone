@@ -19,36 +19,8 @@ class PenggunaController extends Controller
         $data ['title'] = 'Profile User';
     	$data ['user'] = User::where('id', session('id'))->first();
 
-    	return view('backend.pages.user.profile', $data);
+    	return view('frontend.pages.user.profile', $data);
     }
-
-    public function index()
-    {
-        $data ['title'] = 'Profile User';
-    	$data ['user'] = User::where('id', Auth::user()->id)->first();
-
-    	return view('backend.pages.user.profile', $data);
-    }
-    // public function index(){
-        
-    //     $data ['title'] = 'Riwayat';
-    //     $data ['user'] = User::where('id', Auth::user()->id)->first();
-    //     // $data ['user'] = User::where('id', Auth::user()->id)->first(); 
-
-    // 	return view('backend.pages.user.profile', $data);
-    // }
-     // Edit profile - Role User
-	// public function profil($id)
-    // {
-    //     $data ['title'] = 'Edit Data Pengguna';
-    //     $data ['user'] = User::find($id);
-
-    // 	return view('backend.pages.user.user', $data);
-    //     return view("backend.pages.user.user_edit",[
-    //         'title' => 'Admin - Edit User',
-    //         'item' => User::where('id', Auth::user()->id)->first(),
-    //     ]);
-    // }
 
     public function update(Request $request)
     {
