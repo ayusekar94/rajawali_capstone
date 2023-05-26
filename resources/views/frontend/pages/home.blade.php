@@ -38,22 +38,33 @@
         </div>
     </div>
 </section>
-<section class="homepage3">
+{{-- <section class="homepage3">
     <div class="container">
+        @foreach ($category as $item)
         <div class="row">
-            <div class="col">
                 <div class="text-center">
-                    <a href="#" class="button">Category</a>
-                    <a href="#" class="button">Category</a>
-                    <a href="#" class="button">Category</a>
+                    <a href="#" class="button">{{ $item->name }}</a>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-</section>
+</section> --}}
 <section class="homepage4">
     <div class="container">
         <div class="row my-5">
+            <h2 class="text-center margin-bottom-lg fw-bold">Rekomendasi Wisata</h2>
+            {{-- @foreach ($wisata as $item)
+                <div class="col-4">
+                    <div class="card border-0" style="width: 18rem;">
+                        <img src={{ $item->image }} class="card-img-top rounded" alt="...">
+                        <div class="card-body">
+                            <h5 class="fw-bold">{{ $item->name }}</h5>
+                            <p class="card-text">{{ $item->description }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach --}}
             <div class="col-4">
                 <div class="card border-0" style="width: 18rem;">
                     <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">

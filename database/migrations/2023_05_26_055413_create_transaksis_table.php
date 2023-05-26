@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('wisata_id');
-            $table->foreign('wisata_id')->references('wisata_id')->on('wisatas');
+            $table->foreign('wisata_id')->references('id')->on('wisatas');
             $table->foreignId('cart_id');
             $table->foreign('cart_id')->references('id')->on('carts');
             $table->integer('jumlah');

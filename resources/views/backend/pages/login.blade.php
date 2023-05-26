@@ -17,7 +17,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <center><img src="{{ asset('assets/images/logo.PNG')}}" alt="logo"></center>
+                <center><img src="{{ asset('assets/frontend/css/images/RawalaText.png') }}" alt="logo"></center>
               </div> 
               <h4>Hello! let's get started</h4>
               <h6 class="fw-light">Sign in to continue.</h6>
@@ -51,25 +51,10 @@
                 <p>
                   Belum punya akun?
                   <a href="/register">silakan Sign up.</a>
-              </p>
+                </p>
                 <div class="mt-3">
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                <div class="text-center mt-4 fw-light">
-<!-- <<<<<<< HEAD -->
-                  Don't have an account? <a href="/register" class="text-primary">Create</a>
-                </div> 
-<!-- ======= -->
-<!-- >>>>>>> e2456f2e15597fe7471fddd44aeda0ec12198a30 -->
               </form>
             </div>
           </div>

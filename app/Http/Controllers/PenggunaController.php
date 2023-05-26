@@ -28,10 +28,10 @@ class PenggunaController extends Controller
             'password'  => 'confirmed',
         ]);
 
-    	$user = User::where('id', Auth::user()->id)->first();
+    	$user = User::where('id', session('id'))->first();
     	$user->name = $request->name;
     	$user->email = $request->email;
-    	$user->nohp = $request->noHp;
+    	$user->noHp = $request->noHp;
     	$user->alamat = $request->alamat;
     	if(!empty($request->password))
     	{
@@ -40,6 +40,6 @@ class PenggunaController extends Controller
     	
     	$user->update();
 
-    	return redirect('/history');
+    	return redirect('/');
     }
 }

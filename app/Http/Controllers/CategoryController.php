@@ -74,12 +74,6 @@ class CategoryController extends Controller
                 'title' => 'Pengelola - Edit category',
                 'item' => Category::find($id),
             ]);
-            
-
-        // $data ['title'] = 'Edit Produk';
-        // $data['category'] = Category::find($id);
-
-        // return view('backend.pages.pengelola.category_edit', $data);
     }
 
     /**
