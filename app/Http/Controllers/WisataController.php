@@ -63,7 +63,7 @@ class WisataController extends Controller
         // $image = $request->file('image'); 
         // $image->storeAs('gambar', $image->hashName());
         $image = $request->image;
-        $slug = Str::slug($image->getClientOriginalName());
+        $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
         $image->move(public_path('image'), $new_image);
 
