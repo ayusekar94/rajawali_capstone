@@ -54,8 +54,8 @@ Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
 
 // User
-Route::get('profile', PenggunaController::class, '');
-
+Route::get('profile', PenggunaController::class);
+Route::post('profile', [PenggunaController::class, 'update']);
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
