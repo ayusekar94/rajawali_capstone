@@ -29,15 +29,15 @@
             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Welcome, {{ session('name') }}
               </a>
-              <ul class="dropdown-menu" {{ (session('role')=="admin") }}>
+              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="admin") }}>
                 <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
-              <ul class="dropdown-menu" {{ (session('role')=="pengelola") }}>
+              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="pengelola") }}>
                 <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
-              <ul class="dropdown-menu" {{ (session('role')=="user") }}>
+              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="user") }}>
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
             </li>
