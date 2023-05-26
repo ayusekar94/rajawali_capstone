@@ -918,10 +918,16 @@ p.text-large {
 
 /* searchbar */
 
+.container-searchbar{
+    width: 500px;
+    margin: auto;
+}
+
 .searchbar{
-    margin-top: 5%;
+    margin-top: 10px;
     width: 100%;
-    max-width: 500%;
+    height: 7%;
+    max-width: 100%;
     background: rgb(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
@@ -936,23 +942,24 @@ p.text-large {
     border: 0;
     outline: none;
     padding: 24px 20px;
-    font-size: 20px;
+    font-size: 15px;
     color: #ffffff;
 }
 
 ::placeholder{
     color: #ffffff;
+    font-size: 15px;
 }
 
 .searchbar button img{
-    width: 25px;
+    width: 15px;
 }
 
 .searchbar button{
     border: 0;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     background: #787878;
     cursor: pointer;
 }
