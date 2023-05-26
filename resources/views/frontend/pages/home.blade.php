@@ -3,7 +3,7 @@
 @section('content')
 
 @include('frontend.include.navbar')
-<section class="homepage1">
+<section class="homepage1" style="margin-top: 50px">
     <div>
         <div class="bg-img">
           <div class="container text-center">
