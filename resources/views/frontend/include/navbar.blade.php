@@ -2,7 +2,6 @@
     <div class="container-fluid mx-lg-5">
         <img src="{{ asset('assets/frontend/css/images/RawalaText.png') }}" alt="Logo" width="100" class="d-inline-block align-text-top" href="#">
       <a class="navbar-brand" href="#"></a>
-<<<<<<< HEAD
       <button
         class="navbar-toggler"
         type="button"
@@ -11,14 +10,11 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation">
-=======
->>>>>>> f30e9a28b5834c642846699576ea4d92889aa7ae
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-            @guest
             <li class="nav-item">
               <a href="{{ url('/') }}" class="nav-link text-white {{ request()->is('/') ? ' active-link' : '' }}">
                   <span>Home</span>
@@ -39,36 +35,29 @@
           <li class="nav-item dropdown" {{ session('isLogin')?"":"style=display:none" }}>
             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Welcome, {{ session('name') }}
-<<<<<<< HEAD
             </a>
-            <ul class="dropdown-menu" {{ (session('role')=="admin") }}>
+            @if ( session('role')== "user" ? "" : "style=display:none" )
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
-            <ul class="dropdown-menu" {{ (session('role')=="pengelola") }}>
-              <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
+            @else
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/keranjang">Keranjang</a></li>
+              <li><a class="dropdown-item" href="/histori">Riwayat</a></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
-            <ul class="dropdown-menu" {{ (session('role')=="user") }}>
-              <li><a class="dropdown-item" href="/logout">Logout</a></li>
-            </ul>
+            @endif
+            
+            {{-- <ul class="dropdown-menu" {{ session('role')=="pengelola" ? "" : "style=display:none" }}>
+              <li><a class="dropdown-item" {{ (session('role')=="pengelola") }} href="/dashboard">Dashbord</a></li>
+              <li><a class="dropdown-item" {{ (session('role')=="pengelola") }} href="/logout">Logout</a></li>
+            </ul> --}}
+            {{-- <ul class="dropdown-menu" {{ session('role')=="user" ? "" : "style=display:none" }}>
+              <li><a class="dropdown-item"  href="/dashboard">Dashbord</a></li>
+              <li><a class="dropdown-item"  href="/logout">Logout</a></li>
+            </ul> --}}
           </li> 
-=======
->>>>>>> f30e9a28b5834c642846699576ea4d92889aa7ae
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="admin") }}>
-                <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-              </ul>
-              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="pengelola") }}>
-                <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-              </ul>
-              <ul class="dropdown-menu dropdown-menu-end animate slideIn" {{ (session('role')=="user") }}>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-              </ul>
-            </li>
-          @endauth
         </ul>
       </div>
     </div>
