@@ -43,20 +43,11 @@
             </ul>
             @else
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/keranjang">Keranjang</a></li>
-              <li><a class="dropdown-item" href="/histori">Riwayat</a></li>
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/riwayat">Riwayat</a></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
             @endif
-            
-            {{-- <ul class="dropdown-menu" {{ session('role')=="pengelola" ? "" : "style=display:none" }}>
-              <li><a class="dropdown-item" {{ (session('role')=="pengelola") }} href="/dashboard">Dashbord</a></li>
-              <li><a class="dropdown-item" {{ (session('role')=="pengelola") }} href="/logout">Logout</a></li>
-            </ul> --}}
-            {{-- <ul class="dropdown-menu" {{ session('role')=="user" ? "" : "style=display:none" }}>
-              <li><a class="dropdown-item"  href="/dashboard">Dashbord</a></li>
-              <li><a class="dropdown-item"  href="/logout">Logout</a></li>
-            </ul> --}}
           </li> 
         </ul>
       </div>

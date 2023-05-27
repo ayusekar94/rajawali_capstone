@@ -54,14 +54,26 @@ Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
 
 // User
-Route::get('profile', PenggunaController::class);
-Route::post('profile', [PenggunaController::class, 'update']);
+Route::get('/profile', PenggunaController::class);
+Route::post('/profile', [PenggunaController::class, 'update']);
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
 });
 
 // coba Profil user
+Route::get('/keranjang', function () {
+    return view('frontend/pages/keranjang');
+});
+Route::get('/lihatriwayat', function () {
+    return view('frontend/pages/lihatriwayat');
+});
+Route::get('/riwayat', function () {
+    return view('frontend/pages/riwayatpemesanan');
+});
+Route::get('/bookingtiket', function () {
+    return view('frontend/pages/user/bookingtiket');
+});
 Route::get('/profiluser', function () {
     return view('frontend/profil/user');
 });

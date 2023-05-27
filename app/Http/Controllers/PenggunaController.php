@@ -40,6 +40,6 @@ class PenggunaController extends Controller
     	
     	$user->update();
 
-    	return redirect('/');
+    	return redirect('/profile');
     }
 }

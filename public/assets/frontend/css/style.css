@@ -1277,3 +1277,19 @@ a.button:hover {
     -webkit-animation-name: slideIn;
     animation-name: slideIn;
   }
+
+  .ticket {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+.ticket img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    object-fit: cover;
+    border-radius: 5px;
+}

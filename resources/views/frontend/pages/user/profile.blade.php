@@ -4,13 +4,13 @@
 
 @include('frontend.include.navbar')
     <div class="container">
-        <div class="row my-5">
-            <div class="col-4 mt-4">
+        <div class="row mt-5">
+            <div class="col-4 mt-5 ">
                 <div class="card border-0" style="width: 16rem;">
                     <img src="https://www.its.ac.id/aktuaria/wp-content/uploads/sites/100/2018/03/user.png" class="card-img-top rounded-circle" alt="...">
                 </div>
             </div>
-            <div class="col-md-7 mt-4">
+            <div class="col-md-7 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <h4><i class="fa fa-pencil"></i> Edit Profile</h4>
@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-2">
+                                <div class="col-md-5 offset-md-3">
                                     <button type="submit" class="btn btn-primary">
                                         Save
                                     </button>
