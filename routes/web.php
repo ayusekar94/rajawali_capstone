@@ -29,6 +29,7 @@ use App\Http\Controllers\HomeController;
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('HomePage');
 Route::get('/infoBerita', [HomeController::class, 'bindex']);
+Route::get('/lwisata', [HomeController::class, 'wisata']);
 
 // Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
@@ -56,6 +57,11 @@ Route::resource('/category', CategoryController::class);
 // User
 Route::get('/profile', PenggunaController::class);
 Route::post('/profile', [PenggunaController::class, 'update']);
+Route::get('/detail/{id}', [PenggunaController::class, 'dcart']);
+Route::post('/pesan/{id}', [PenggunaController::class, 'pesan']);
+Route::get('/check-out', [PenggunaController::class, 'check_out']);
+// Route::get('/pesan', [PenggunaController::class, 'pesan']);
+// Route::get('/pesan', [PenggunaController::class, 'pesanan']);
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');

@@ -54,44 +54,18 @@
     <div class="container">
         <div class="row my-5">
             <h2 class="text-center margin-bottom-lg fw-bold">Rekomendasi Wisata</h2>
-            {{-- @foreach ($wisata as $item)
+            @foreach ($wisata as $item)
                 <div class="col-4">
                     <div class="card border-0" style="width: 18rem;">
-                        <img src={{ $item->image }} class="card-img-top rounded" alt="...">
+                        <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
                         <div class="card-body">
                             <h5 class="fw-bold">{{ $item->name }}</h5>
                             <p class="card-text">{{ $item->description }}</p>
+                            {{-- <a href="/bookingtiket" class="btn btn-primary btn-sm" >Pesan Tiket</a><br> --}}
                         </div>
                     </div>
                 </div>
-            @endforeach --}}
-            <div class="col-4">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Title</h5>
-                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, perferendis?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Title</h5>
-                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, perferendis?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Title</h5>
-                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, perferendis?</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

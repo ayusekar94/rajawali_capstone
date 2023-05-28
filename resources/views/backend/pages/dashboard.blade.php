@@ -56,6 +56,34 @@
                             <h3 class="rate-percentage">{{ $jml_admin }}</h3>
                             {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>Orang</span></p> --}}
                           </div>
+                          <div>
+                            <p class="statistics-title">Pengelola</p>
+                            <h3 class="rate-percentage">{{ $jml_pengelola }}</h3>
+                          </div>
+                          <div>
+                            <p class="statistics-title">User</p>
+                            <h3 class="rate-percentage">{{ $jml_user }}</h3>
+                          </div>
+                          <div>
+                            <p class="statistics-title">Wisata</p>
+                            <h3 class="rate-percentage">{{ $jml_wisata }}</h3>
+                          </div>
+                          <div>
+                            <p class="statistics-title">Category</p>
+                            <h3 class="rate-percentage">{{ $jml_category }}</h3>
+                          </div>
+                          <div>
+                            <p class="statistics-title">Berita</p>
+                            <h3 class="rate-percentage">{{ $jml_berita }}</h3>
+                          </div>
+                          <div>
+                            <p class="statistics-title">Promosi</p>
+                            <h3 class="rate-percentage">{{ $jml_promosi }}</h3>
+                          </div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Transaksi</p>
+                            <h3 class="rate-percentage">{{ $jml_wisata }}</h3>
+                          </div>
                         </div>
                       </div>
                     </div> 

@@ -16,21 +16,11 @@ class DashboardController extends Controller
         return view('backend.pages.dashboard', [
              'jml_admin' => DB::table('admins')->count(),
              'jml_pengelola' => DB::table('pengelolas')->count(),
-            //  'jml_apoteker' => DB::table('apotekers')->count(),
-            //  'jml_dokter' => DB::table('dokters')->count(),
-            //  'jml_karyawan' => DB::table('karyawans')->count(),
-            //  'jml_pasien' => DB::table('pasiens')->count(),
-            //  'jml_transaksi' => DB::table('transaksis')->count(),
-            // //  'jml_pasien' => Pasien::get()->count(),
-            // //  'pasien_laki' => DB::select(DB::raw("SELECT count(*) as jumlah FROM pasiens WHERE jenisKelamin = 1")),
-            // //  'pasien_wanita' => DB::select(DB::raw("SELECT count(*) as jumlah FROM pasiens WHERE jenisKelamin = 0")),
-            //  'pasien_laki' => Pasien::where('jenisKelamin','1')->count(),
-            //  'pasien_wanita' => Pasien::where('jenisKelamin','0')->count(),
-            //  'jml_obat' => DB::table('obats')->count(),
-            //  'obat_diatas' => Obat::where('jumlah','>','50')->count(),
-            //  'obat_dibawah' => Obat::where('jumlah','<','50')->count(),
-            //  'transaksi_berhasil' => Transaksi::where('status','1')->count(),
-            //  'transaksi_pending' => Transaksi::where('status','0')->count(),
+             'jml_user' => DB::table('users')->count(),
+             'jml_wisata' => DB::table('wisatas')->count(),
+             'jml_category' => DB::table('categories')->count(),
+             'jml_berita' => DB::table('beritas')->count(),
+             'jml_promosi' => DB::table('promosis')->count(),
         ]);
         
     }

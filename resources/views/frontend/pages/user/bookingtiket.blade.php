@@ -1,37 +1,33 @@
 <html lang="en">
     @include('frontend.include.header')
     @section('title')
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="resources\js\app.js"></script>
 <head>
     <title>Booking Tiket</title>
+    @include('frontend.include.navbar')
     @yield('content')
     @include('frontend.include.source')
-    <h1>Booking Tiket</h1>
 </head>
 <body>
-    <div class="row my-4">
+    <div class="row md-12 mt-5">
        <div class ="container">
-            <div class="col-8">
-                <div class="p-3 mb-2 bg-secondary text-black">
-                <form>
-                    <form action="#">
-                        <label for="Tanggal">Tanggal</label>
-                        <input type="date" class="form-control" id="Tanggal" name="Tanggal">
-                    <div class="mb-3">
-                    <label for="jumlahTiket">Jumlah Tiket</label>
-                        <input type="number" class="form-control"value="1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="totalHarga" class="form-label">Total Harga</label>
-                        <input type="BigInt" class="form-control" id="totalHarga">
-                    </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-10 mt-5">
+                <h2>Booking Tiket</h2>
+                <div class="p-4 mb-4 text-black">
+                    <form method="post" action="{{ url('pesan') }}/{{ $wisata->id }}">
+                        @csrf
+                        <div class="mb-3">
+                                <label for="Tanggal">Tanggal</label>
+                                <input type="date" class="form-control" id="Tanggal" name="tanggal">
+                        </div>
+                        <div class="mb-3">
+                            <label for="jumlahTiket">Jumlah Tiket</label>
+                                <input type="number" name="jumlah_pesan" class="form-control" value="1">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-1">Pesan</button>
+                    </form>
                 </div>
             </div>
         </div>
-                </form>
     </div>
 </body>
 </html>

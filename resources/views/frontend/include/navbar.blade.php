@@ -24,7 +24,7 @@
               <a class="nav-link text-white" href="/infoBerita">Berita</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/infoWisata">Wisata</a>
+              <a class="nav-link text-white" href="/lwisata">Wisata</a>
             </li>
             <li class="nav-item" {{ session('isLogin')?"style=display:none":"" }}>
               <a class="nav-link text-white" href="/login">Login</a>
@@ -43,6 +43,21 @@
             </ul>
             @else
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <?php
+                  $cart_utama = \App\Models\Cart::where('user_id', session('id'))->where('status',0)->first();
+                  if(!empty($cart_utama))
+                  {
+                    $notif = \App\Models\Transaksi::where('cart_id', $cart_utama->id)->count(); 
+                  }
+                ?>
+                <a class="dropdown-item" href="{{ url('check-out') }}">
+                    Keranjang
+                    @if(!empty($notif))
+                      <span class="badge badge-danger">{{ $notif }}</span>
+                    @endif
+                </a>
+              </li>
               <li><a class="dropdown-item" href="/profile">Profile</a></li>
               <li><a class="dropdown-item" href="/riwayat">Riwayat</a></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
