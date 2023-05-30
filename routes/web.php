@@ -60,8 +60,9 @@ Route::post('/profile', [PenggunaController::class, 'update']);
 Route::get('/detail/{id}', [PenggunaController::class, 'dcart']);
 Route::post('/pesan/{id}', [PenggunaController::class, 'pesan']);
 Route::get('/check-out', [PenggunaController::class, 'check_out']);
-// Route::get('/pesan', [PenggunaController::class, 'pesan']);
-// Route::get('/pesan', [PenggunaController::class, 'pesanan']);
+Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
+Route::get('history',  [PenggunaController::class, 'index']);
+// Route::get('history/{id}',  [PenggunaController::class, 'detail']);
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
@@ -76,12 +77,6 @@ Route::get('/lihatriwayat', function () {
 });
 Route::get('/riwayat', function () {
     return view('frontend/pages/riwayatpemesanan');
-});
-Route::get('/bookingtiket', function () {
-    return view('frontend/pages/user/bookingtiket');
-});
-Route::get('/profiluser', function () {
-    return view('frontend/profil/user');
 });
 Route::get('/transaksi', function () {
     return view('frontend/transaksi');

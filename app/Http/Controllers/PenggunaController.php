@@ -17,6 +17,7 @@ class PenggunaController extends Controller
         return $this->middleware('user') && $this->middleware('login');
     }
 
+	// Tampil profile user
     public function __invoke(Request $request)
     {
         $data ['title'] = 'Profile User';
@@ -25,6 +26,7 @@ class PenggunaController extends Controller
     	return view('frontend.pages.user.profile', $data);
     }
 
+	// Update profil user
     public function update(Request $request)
     {
     	 $this->validate($request, [
@@ -107,6 +109,7 @@ class PenggunaController extends Controller
     	return redirect('/');  
     }
 
+	// Memasukkan barang ke keranjang
     public function check_out()
     {
         $title = 'Cart';
@@ -119,4 +122,47 @@ class PenggunaController extends Controller
         
         return view('frontend.pages.user.keranjang', compact('cart', 'transaksi', 'title'));
     }
+
+	// Konfrimasi pesanan yang ingin di check_out
+	public function konfirmasi()
+    {
+        $user = User::where('id', session('id'))->first();
+
+        if(empty($user->password))
+        {
+            return redirect('profile');
+        }
+
+        $cart = Cart::where('user_id', session('id'))->where('status',0)->first();
+        $cart_id = $cart->id;
+        $cart->status = 1;
+        $cart->update();
+
+        $transaksis = Transaksi::where('cart_id', $cart_id)->get();
+        foreach ($transaksis as $transaksi) {
+            $wisata = Wisata::where('id', $transaksi->wisata_id)->first();
+            // $wisata->stok = $wisata->stok-$transaksi->jumlah;
+            $wisata->update();
+        }
+
+        return redirect('history/'.$cart_id);
+    }
+
+	// Tampil History 
+	public function index()
+    {
+        $data ['title'] = 'History';
+        $data['carts'] = Cart::where('user_id', session('id'))->where('status', '!=',0)->get();
+
+    	return view('frontend.pages.user.history', $data);
+    }
+
+    // public function detail($id)
+    // {
+    //     $title = 'Detail Riwayat';
+    // 	$cart = Cart::where('id', $id)->first();
+    // 	$transaksi = Transaksi::where('cart_id', $cart->id)->get();
+
+    //  	return view('frontend.history.detail', compact('title','cart','transaksi'));
+    // }
 }

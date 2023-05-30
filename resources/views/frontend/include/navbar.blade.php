@@ -59,7 +59,7 @@
                 </a>
               </li>
               <li><a class="dropdown-item" href="/profile">Profile</a></li>
-              <li><a class="dropdown-item" href="/riwayat">Riwayat</a></li>
+              <li><a class="dropdown-item" href="/history">Riwayat</a></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
             @endif

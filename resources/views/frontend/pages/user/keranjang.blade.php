@@ -25,7 +25,10 @@
                 </div>
             @endforeach
             <div class="total mt-4 mb-5">
-                Total Harga : Rp. {{ number_format($cart->jumlah_harga) }}
+                Total Harga : Rp. {{ number_format($cart->jumlah_harga) }} <br>
+                <a href="{{ url('konfirmasi') }}" class="btn btn-success" onclick="return confirm('Anda yakin akan Check Out ?');">
+                    <i class="fa fa-shopping-cart"></i> Check Out
+                </a>
             </div>
         @endif
     </div>
