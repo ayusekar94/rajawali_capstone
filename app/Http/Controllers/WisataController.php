@@ -60,10 +60,18 @@ class WisataController extends Controller
             'location' => 'required', 
             'id_category' => 'required' 
         ]);
+<<<<<<< HEAD
                      
         
         //upload image 
         $image = $request->image; 
+=======
+ 
+        // //upload image 
+        // $image = $request->file('image'); 
+        // $image->storeAs('gambar', $image->hashName());
+        $image = $request->image;
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
         $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
         $image->move('uploads/wisata/' ,$new_image);

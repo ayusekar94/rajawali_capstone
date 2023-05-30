@@ -46,14 +46,17 @@
                   {{ $i->name }}
                 </td>
                 <td>
+<<<<<<< HEAD
                 @if ($i->image)
                   <img width="60px" height="60px" src="{{ asset($i->image) }}" >
                   @else
                     <p>tidak ada gambar</p>
                                             
                    @endif
+=======
+                  <img width="60px" height="60px" src="{{ asset('image/').$i->image }}" >
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
                 </td>
-                
                 <td>
                   {{ $i->description}}
                 </td>

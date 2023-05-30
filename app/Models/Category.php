@@ -9,11 +9,12 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
+<<<<<<< HEAD
         
+=======
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
         'name',
-// >>>>>>> e2456f2e15597fe7471fddd44aeda0ec12198a30
     ];
-    // protected $primarykey ='category_id';
 
     public function wisata()
     {

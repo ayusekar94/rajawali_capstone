@@ -21,7 +21,7 @@ class AuthController extends Controller
     // Halaman Login
     public function login(){
         if(session('isLogin') == true){
-            return redirect('/dashboard');
+            return redirect('/');
         }
         
         return view('/login');
@@ -55,14 +55,14 @@ class AuthController extends Controller
                     'jenisKelamin' => $user->jenisKelamin
                     ]);
                 // return redirect('/'.$request->role);
-                return redirect('/dashboard');
+                return redirect('/');
             }
             //jika password salah
-            return redirect('/')->with('error_password', 'Password Tidak Cocok');
+            return redirect('/login')->with('error_password', 'Password Tidak Cocok');
         }
         
         //jika username tidak ada
-        return redirect('/')->with('error_username', 'Username Tidak Ditemukan');
+        return redirect('/login')->with('error_username', 'Username Tidak Ditemukan');
     }
     
     // Logout

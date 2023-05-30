@@ -7,7 +7,11 @@
       </div>
       <div>
         <a class="navbar-brand brand-logo" href="index.html">
+<<<<<<< HEAD
           <img src="{{ asset('assets/images/Rawala.PNG')}}" alt="logo" /> RaTours
+=======
+          <img src="{{ asset  ('assets/frontend/css/images/RawalaText.png') }}" alt="logo" /> 
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
           <img src="{{ asset('assets/images/logo.svg')}}" alt="logo" />

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Wisata;
+use App\Models\Cart;
+use App\Models\Transaksi;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class PenggunaController extends Controller
@@ -19,36 +22,8 @@ class PenggunaController extends Controller
         $data ['title'] = 'Profile User';
     	$data ['user'] = User::where('id', session('id'))->first();
 
-    	return view('backend.pages.user.profile', $data);
+    	return view('frontend.pages.user.profile', $data);
     }
-
-    public function index()
-    {
-        $data ['title'] = 'Profile User';
-    	$data ['user'] = User::where('id', Auth::user()->id)->first();
-
-    	return view('backend.pages.user.profile', $data);
-    }
-    // public function index(){
-        
-    //     $data ['title'] = 'Riwayat';
-    //     $data ['user'] = User::where('id', Auth::user()->id)->first();
-    //     // $data ['user'] = User::where('id', Auth::user()->id)->first(); 
-
-    // 	return view('backend.pages.user.profile', $data);
-    // }
-     // Edit profile - Role User
-	// public function profil($id)
-    // {
-    //     $data ['title'] = 'Edit Data Pengguna';
-    //     $data ['user'] = User::find($id);
-
-    // 	return view('backend.pages.user.user', $data);
-    //     return view("backend.pages.user.user_edit",[
-    //         'title' => 'Admin - Edit User',
-    //         'item' => User::where('id', Auth::user()->id)->first(),
-    //     ]);
-    // }
 
     public function update(Request $request)
     {
@@ -56,10 +31,10 @@ class PenggunaController extends Controller
             'password'  => 'confirmed',
         ]);
 
-    	$user = User::where('id', Auth::user()->id)->first();
+    	$user = User::where('id', session('id'))->first();
     	$user->name = $request->name;
     	$user->email = $request->email;
-    	$user->nohp = $request->noHp;
+    	$user->noHp = $request->noHp;
     	$user->alamat = $request->alamat;
     	if(!empty($request->password))
     	{
@@ -68,6 +43,80 @@ class PenggunaController extends Controller
     	
     	$user->update();
 
-    	return redirect('/history');
+    	return redirect('/profile');
+    }
+
+    // detail cart
+    public function dcart($id){
+        $data['wisata'] = Wisata::find($id);
+
+        return view('frontend.pages.user.bookingtiket', $data);
+    }
+
+	// booking tiket
+    public function pesan(Request $request, $id){
+        // dd($request);
+    	$wisata = Wisata::where('id', $id)->first();
+
+    	//cek validasi
+    	$cek_cart = Cart::where('user_id', session('id'))->where('status',0)->first();
+
+    	//simpan ke database cart
+    	if(empty($cek_cart))
+    	{
+    		$cart = new Cart;
+	    	$cart->user_id = session('id');
+	    	$cart->tanggal = $request->tanggal;
+	    	$cart->status = 0;
+	    	$cart->jumlah_harga = 0;
+            $cart->kode = mt_rand(100, 999);
+	    	$cart->save();
+    	}
+    	
+
+    	//simpan ke database cart detail
+    	$cart_baru = Cart::where('user_id', session('id'))->where('status',0)->first();
+
+    	//cek cart detail
+    	$cek_transaksi = Transaksi::where('wisata_id', $wisata->id)->where('cart_id', $cart_baru->id)->first();
+    	if(empty($cek_transaksi))
+    	{
+    		$transaksi = new Transaksi;
+	    	$transaksi->wisata_id = $wisata->id;
+	    	$transaksi->cart_id = $cart_baru->id;
+	    	$transaksi->jumlah = $request->jumlah_pesan;
+	    	$transaksi->jumlah_harga = $wisata->price*$request->jumlah_pesan;
+	    	$transaksi->save();
+    	}else 
+    	{
+    		$transaksi = Transaksi::where('wisata_id', $wisata->id)->where('cart_id', $cart_baru->id)->first();
+
+    		$transaksi->jumlah = $transaksi->jumlah+$request->jumlah_pesan;
+
+    		//harga sekarang
+    		$harga_transaksi_baru = $wisata->price*$request->jumlah_pesan;
+	    	$transaksi->jumlah_harga = $transaksi->jumlah_harga+$harga_transaksi_baru;
+	    	$transaksi->update();
+    	}
+
+    	//jumlah total
+    	$cart = Cart::where('user_id', session('id'))->where('status',0)->first();
+    	$cart->jumlah_harga = $cart->jumlah_harga+$wisata->price*$request->jumlah_pesan;
+    	$cart->update();
+    	
+    	return redirect('/');  
+    }
+
+    public function check_out()
+    {
+        $title = 'Cart';
+        $cart = Cart::where('user_id', session('id'))->where('status',0)->first();
+ 	    $transaksi = [];
+        if(!empty($cart))
+        {
+            $transaksi = Transaksi::where('cart_id', $cart->id)->get();
+        }
+        
+        return view('frontend.pages.user.keranjang', compact('cart', 'transaksi', 'title'));
     }
 }

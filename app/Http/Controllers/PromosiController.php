@@ -58,7 +58,7 @@ class PromosiController extends Controller
     {
 
         $data ['title'] = 'Edit Promosi';
-        $data['promosi'] = Promosi::find($id);
+        $data['item'] = Promosi::find($id);
 
         return view('backend.pages.pengelola.promosi_edit', $data);
 
@@ -69,13 +69,24 @@ class PromosiController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            
+            'image'=> 'image|file|max:1024',
         ]);
 
-        $promosi= Promosi::find($id);
-        if($request->hasFile('image')){
-            $request->validate([
-                'image' => 'required|image|mimes:png,jpg|max:2040'
+        //check if image is uploaded
+        if ($request->hasFile('image')) {
+
+            //upload new image
+            $image = $request->file('image');
+            $image->storeAs('gambar', $image->hashName());
+
+            //delete old image
+            Storage::delete('gambar'.$promosi->image);
+
+            //update post with new image
+            $promosi->update([
+                'image'     => $image->hashName(),
+                'name' => $request->name,
+                'price' =>$request->price,
             ]);
         
         $image = $request->image;

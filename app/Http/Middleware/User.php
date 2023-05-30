@@ -17,10 +17,6 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        // if (Auth::check() && Auth::user() != 'user') {
-        //     return $next($request);
-        // }
-        // return redirect('/');
         if(session('role') != 'user'){
             return redirect('/');
         }

@@ -44,8 +44,8 @@ class AuthSeeder extends Seeder
         DB::table('users')->insert(
             [ // USER
             'name' => 'Nanda Setiawan',
-            'email' => 'setiawananda@gmail.com',
-            'password' => bcrypt('1234567890'),
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('56789'),
             'alamat' => $faker->address,
             'noHp' => '089526545324',
             'jenisKelamin' => 0,

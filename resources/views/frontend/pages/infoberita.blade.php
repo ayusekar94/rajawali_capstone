@@ -4,7 +4,7 @@
 
 @include('frontend.include.navbar')
 
-<section class="infoberita">
+<section class="infoberita" style="margin-top: 100px;">
     <div class="container">
         <div class="card my-3 border-0" style="max-width: auto; background-color: #d0d0d0;">
             <div class="row g-0">

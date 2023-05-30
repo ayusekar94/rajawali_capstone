@@ -16,8 +16,6 @@ use App\Http\Controllers\PromosiController;
 
 
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,10 +26,10 @@ use App\Http\Controllers\PromosiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('backend/pages/login');
-// });
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('HomePage');
+Route::get('/infoBerita', [HomeController::class, 'bindex']);
+Route::get('/lwisata', [HomeController::class, 'wisata']);
 
 // Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
@@ -50,6 +48,8 @@ Route::resource('/user', UserController::class);
 // Pengelola
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
+Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
+Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
@@ -59,11 +59,14 @@ Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
 // User
 Route::get('profile', PenggunaController::class, '');
 
+// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
+
+
+// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
+
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
-Route::post('/promosi', [PromosiController::class, 'store'])->name('promosi');
-Route::put('/pengelola/promosi/{id}',[PromosiController::class, 'update'])->name('promosi');
 
 Route::get('/infoberita', function () {
     return view('frontend/pages/infoberita');
@@ -71,4 +74,24 @@ Route::get('/infoberita', function () {
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
+});
+
+// coba Profil user
+Route::get('/keranjang', function () {
+    return view('frontend/pages/keranjang');
+});
+Route::get('/lihatriwayat', function () {
+    return view('frontend/pages/lihatriwayat');
+});
+Route::get('/riwayat', function () {
+    return view('frontend/pages/riwayatpemesanan');
+});
+Route::get('/bookingtiket', function () {
+    return view('frontend/pages/user/bookingtiket');
+});
+Route::get('/profiluser', function () {
+    return view('frontend/profil/user');
+});
+Route::get('/transaksi', function () {
+    return view('frontend/transaksi');
 });

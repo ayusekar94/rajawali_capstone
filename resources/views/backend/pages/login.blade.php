@@ -17,7 +17,11 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
+<<<<<<< HEAD
                 <center><img src="{{ asset('assets/images/logo.PNG')}}" style="width: 200px;" alt="logo"></center>
+=======
+                <center><img src="{{ asset('assets/frontend/css/images/RawalaText.png') }}" alt="logo"></center>
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
               </div> 
               <h4>Hello! let's get started</h4>
               <h6 class="fw-light">Sign in to continue.</h6>
@@ -48,6 +52,7 @@
                     <option value="user">User</option>
                   </select>
                 </div>
+<<<<<<< HEAD
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
@@ -65,6 +70,15 @@
 <!-- <<<<<<< HEAD -->
 <!-- ======= -->
 <!-- >>>>>>> e2456f2e15597fe7471fddd44aeda0ec12198a30 -->
+=======
+                <p>
+                  Belum punya akun?
+                  <a href="/register">silakan Sign up.</a>
+                </p>
+                <div class="mt-3">
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
+                </div>
+>>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
               </form>
             </div>
           </div>
