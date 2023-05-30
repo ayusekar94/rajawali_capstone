@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -67,7 +68,7 @@ class AuthController extends Controller
     // Logout
     public function logout(){
         session()->flush();
-        return redirect('/');
+        return redirect('/login');
     }
 
     // register
@@ -110,6 +111,7 @@ class AuthController extends Controller
                 break;
         }
         
-        return redirect('/')->with('success', 'Registration Successfull');
+        return redirect('/login')->with('success', 'Registration Successfull');
     }
+
 }

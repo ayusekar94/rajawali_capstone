@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 
+
 class AdminController extends Controller
 {
     public function __construct(){
         return $this->middleware('admin') && $this->middleware('login');
+        return $this->middleware('pengelola') && $this->middleware('login');
     }
     
     // DASHBOARD
@@ -17,7 +19,8 @@ class AdminController extends Controller
         return view('backend.pages.admin.admin',[
              'item' => DB::table('admins')->paginate(10),
              'title' => 'Admin'
-        ]);  
+        ]);
+         
      }
  
      // Tampilan Create Admin

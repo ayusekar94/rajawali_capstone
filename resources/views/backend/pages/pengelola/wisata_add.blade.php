@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form class="form-sample" method="POST" action="/wisata" enctype="multipart/form-data">
+    <form class="form-sample" method="POST" action="{{ url('/wisata') }}" enctype="multipart/form-data">
         @csrf
         <p class="card-description">
           Informasi Wisata Wonosobo
@@ -32,17 +32,18 @@
                 </div>
             @enderror
         </div>
-        
-        <div class="col-md-4">
-            <label for="img" class="form-label">Gambar</label>
-            <img class="img-preview img-fluid mb-3 col-sm-3">
-            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewimage()">
-            @error('image')
+        <div class="mb-3 mt-4">
+            <label for="image" class="form-label">Image</label>
+            <input class="form-control" type="file" name="image" id="formFile"
+            accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+             @error('image')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}
                 </div>
             @enderror
         </div>
+        <div class="mt-3"><img src="" id="output" width="400"></div>
+
         <div class="mt-3 mb-3">
             <label for="description" class="from-label">Deskripsi</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror" id="exampleInputEmail1"
@@ -65,7 +66,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
+            <label for="price" class="form-label">Harga Tiket</label>
             <input type="text" class="form-control @error('price') is-invalid @enderror" id="exampleInputEmail1"
             aria-describedby="emailHelp" name="price" placeholder="price" >
             @error('price')

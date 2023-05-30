@@ -9,11 +9,11 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengelolaController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\VerifikasiPesananController;
+// use App\Http\Controllers\VerifikasiPesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
-use App\Http\Controllers\HomeController;
+
 
 
 /*
@@ -53,8 +53,11 @@ Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
+Route::get('/wisata', [WisataController::class,'index'])->name('wisata.index');
+Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
 
 // User
+<<<<<<< HEAD
 Route::get('/profile', PenggunaController::class);
 Route::post('/profile', [PenggunaController::class, 'update']);
 Route::get('/detail/{id}', [PenggunaController::class, 'dcart']);
@@ -63,6 +66,22 @@ Route::get('/check-out', [PenggunaController::class, 'check_out']);
 Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
 Route::get('history',  [PenggunaController::class, 'index']);
 // Route::get('history/{id}',  [PenggunaController::class, 'detail']);
+=======
+Route::get('profile', PenggunaController::class, '');
+
+// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
+
+
+// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
+
+Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
+Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
+
+
+Route::get('/infoberita', function () {
+    return view('frontend/pages/infoberita');
+});
+>>>>>>> 0ccf42105aa557fc125552a60e409eb71660da11
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');

@@ -28,13 +28,18 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($item as $i)
+              @foreach ($promosi as $i)
               <tr>
                 <td>
                   {{ $i->name }}
                 </td>
                 <td>
-                  <img width="60px" height="60px" src="{{ Storage::url('gambar/').$i->image }}" >
+                @if ($i->image)
+                  <img width="60px" height="60px" src="{{ asset($i->image) }}" >
+                  @else
+                    <p>tidak ada gambar</p>
+                                            
+                   @endif
                 </td>
                 <td>
                   {{ $i->price}}
@@ -42,7 +47,7 @@
                 <td>
                   <form action="/promosi/{{ $i->id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/promosi/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/promosi/{{ $i->id }}/edit" class="badge bg-warning border-0"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}

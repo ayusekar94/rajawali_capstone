@@ -84,4 +84,6 @@ class UserController extends Controller
          // toast('Your data has been deleted!','success');
          return redirect("/user"); // untuk diarahkan kemana
      }
+
+     
 }

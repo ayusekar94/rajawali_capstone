@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Models\Promosi;
 
 class PromosiController extends Controller
 {
     public function index(){
         $data ['title'] = 'Promosi';
-        $data['item'] = DB::table('promosis')->paginate(10);
+        $data['promosi'] = DB::table('promosis')->paginate(10);
 
         return view('backend.pages.pengelola.promosi', $data);
     }
@@ -29,20 +30,23 @@ class PromosiController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            'image'=> 'required|image|file|max:1024',
+            'image'=> 'required|image|mimes:png,jpg|max:2040',
         ]);
+        //upload image 
+        $image = $request->image; 
+        $slug = ($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/promosi/' ,$new_image);
+        
+       
+        $promosi = new Promosi();
+        $promosi->image = 'uploads/promosi/'.$new_image;
+        $promosi->name= $request->name;
+        $promosi->price= $request->price;
+        $promosi->save();
 
-        //upload image
-        $image = $request->file('image');
-        $image->storeAs('gambar', $image->hashName());
 
-        Promosi::create([
-            'name' => $request->name,
-            'price' =>$request->price,
-            'image' =>$image->hashName()
-        ]);
-
-        return redirect('/promosi');        
+        return redirect()->intended('/promosi');       
     }
 
     public function show($id)
@@ -60,16 +64,16 @@ class PromosiController extends Controller
 
     }
 
-    public function update(Request $request, Promosi $promosi)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            // 'image'=> 'image|file|max:1024',
+            'image'=> 'image|file|max:1024',
         ]);
-        // dd(!empty($request->image));
+
         //check if image is uploaded
-        if (!empty($request->image)) {
+        if ($request->hasFile('image')) {
 
             //upload new image
             $image = $request->file('image');
@@ -84,14 +88,18 @@ class PromosiController extends Controller
                 'name' => $request->name,
                 'price' =>$request->price,
             ]);
-
-        } else {
-            //update post without image
-            $promosi->update([
-                'name' => $request->name,
-                'price' =>$request->price,
-            ]);
+        
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/promosi/', $new_image);
+        $promosi->image = 'uploads/promosi/'.$new_image;
         }
+
+        
+        $promosi->name= $request->name;
+        $promosi->price= $request->price;
+        $promosi->save();
 
         return redirect('/promosi');
     }

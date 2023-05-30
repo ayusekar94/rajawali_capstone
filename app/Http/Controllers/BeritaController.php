@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Berita;
 use App\Models\Wisata;
 
@@ -52,14 +53,17 @@ class BeritaController extends Controller
         //=======================
 
         //upload image 
-        $image = $request->file('image'); 
-        $image->storeAs('gambar', $image->hashName());
-
-        Berita::create([
-            'name' => $request->name,
-            'image' =>$image->hashName(),
-            'description' => $request->description,
-        ]);
+        $image = $request->image; 
+        $slug = ($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/berita/' ,$new_image);
+        
+       
+        $berita = new Berita();
+        $berita->image = 'uploads/berita/'.$new_image;
+        $berita->name= $request->name;
+        $berita->description= $request->description;
+       $berita->save();
 
         return redirect()->intended('/berita');
     }
@@ -100,18 +104,28 @@ class BeritaController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'image'=> 'required|image|mimes:png,jpg|max:2040',
             'description' => 'required',
             
         ]);
 
-        Berita::where('id', $id)->update([
-            'name' => $validated['name'],
-            'image' => $validated['image'],
-            'description' => $validated['description'],
-            
-        ]);
-        return redirect("/berita");
+        $berita= Berita::find($id);
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg|max:2040'
+            ]);
+        
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/berita/', $new_image);
+        $berita->image = 'uploads/berita/'.$new_image;
+        }
+
+        
+        $berita->name= $request->name;
+        $berita->description= $request->description;
+        $berita->save();
+        return redirect('/berita');
     }
 
     /**

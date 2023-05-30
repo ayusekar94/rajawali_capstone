@@ -15,7 +15,7 @@
               <tr>
                 
                 <th>
-                  Berita
+                  Informasi Berita
                 </th>
                 <th>
                   Image
@@ -36,7 +36,12 @@
                   {{ $i->name }}
                 </td>
                 <td>
-                <img width="60px" height="60px" src="{{ Storage::url('gambar/').$i->image }}" >
+                @if ($i->image)
+                  <img width="60px" height="60px" src="{{ asset($i->image) }}" >
+                  @else
+                    <p>tidak ada gambar</p>
+                                            
+                   @endif
                 </td>
                 <td>
                   {{ $i-> description}}
@@ -44,7 +49,7 @@
                 <td>
                   <form action="/berita/{{ $i->id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/berita/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/berita/{{ $i->id }}/edit" class="badge bg-warning border-0"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}
