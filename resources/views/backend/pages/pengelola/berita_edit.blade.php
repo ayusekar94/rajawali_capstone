@@ -32,11 +32,13 @@
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="img" class="form-label">Gambar</label>
-            <img class="img-preview img-fluid mb-3 col-sm-3">
-            <input class="form-control" type="file" id="image" name="image" onchange="previewimage()" value="{{ $item->image }}">
+        <div>
+        <label for="image" class="form-label">Image</label>
+        <input class="form-control" type="file" name="image" id="formFile"
+        accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
         </div>
+        <div class="mt-3"><img src="{{ asset($item->image) }}" id="output" width="400"></div>
+
         <div class="mb-3">
             <label for="desk" class="from-label">Deskripsi</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror"

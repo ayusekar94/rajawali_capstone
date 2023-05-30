@@ -7,7 +7,7 @@
       </div>
       <div>
         <a class="navbar-brand brand-logo" href="index.html">
-          <img src="{{ asset('assets/images/logo.PNG')}}" alt="logo" /> RWWA
+          <img src="{{ asset('assets/images/Rawala.PNG')}}" alt="logo" /> RaTours
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
           <img src="{{ asset('assets/images/logo.svg')}}" alt="logo" />

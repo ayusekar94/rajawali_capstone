@@ -9,10 +9,12 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengelolaController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\VerifikasiPesananController;
+// use App\Http\Controllers\VerifikasiPesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
+
+
 
 
 
@@ -51,18 +53,17 @@ Route::resource('/wisata', WisataController::class);
 Route::resource('/berita', BeritaController::class);
 Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
+Route::get('/wisata', [WisataController::class,'index'])->name('wisata.index');
+Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
 
 // User
 Route::get('profile', PenggunaController::class, '');
 
-// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
-
-
-// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
-
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
+Route::post('/promosi', [PromosiController::class, 'store'])->name('promosi');
+Route::put('/pengelola/promosi/{id}',[PromosiController::class, 'update'])->name('promosi');
 
 Route::get('/infoberita', function () {
     return view('frontend/pages/infoberita');

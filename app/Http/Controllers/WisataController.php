@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Facedes\File;
@@ -46,27 +47,28 @@ class WisataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
         // dd($request->all()); 
-        $validated = $request->validate([
+         $request->validate([
             'name' => 'required', 
-            'image'=> 'required|image|file|max:1024',
+            'image'=> 'required|image|mimes:png,jpg|max:2040',
             'description' => 'required', 
             'rating' => 'required', 
             'price' => 'required', 
             'location' => 'required', 
             'id_category' => 'required' 
         ]);
- 
-        // //upload image 
-        // $image = $request->file('image'); 
-        // $image->storeAs('gambar', $image->hashName());
-        $image = $request->image;
-        $slug = Str::slug($image->getClientOriginalName());
+                     
+        
+        //upload image 
+        $image = $request->image; 
+        $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
-        $image->move(public_path('image'), $new_image);
-
+        $image->move('uploads/wisata/' ,$new_image);
+        
+       
         $wisatas = new Wisata();
         $wisatas->image = 'uploads/wisata/'.$new_image;
         $wisatas->name= $request->name;
@@ -76,19 +78,9 @@ class WisataController extends Controller
         $wisatas->location = $request->location;
         $wisatas->id_category = $request->id_category;
         $wisatas->save();
-        // Wisata::create([
-        //     'name' => $validated['name'],
-        //     'description' => $validated['description'],
-        //     'rating' =>$validated['rating'],
-        //     'price' =>$validated['price'],
-        //     'location' =>$validated['location'],
-        //     'id_category' =>$validated['id_category'],
-        //     'image' =>$image->hashName(),
-        // ]);
-
         
-        return redirect('/wisata');
-        // return redirect()->intended('wisata');
+        return to_route('wisata.index');
+        
         
     }
 
@@ -114,7 +106,7 @@ class WisataController extends Controller
 
         $data ['title'] = 'Edit Produk';
         $data['category'] = Category::all();
-        $data['wisata'] = Wisata::find($id);
+        $data['wisatas'] = Wisata::find($id);
 
         return view('backend.pages.pengelola.wisata_edit', $data);
 
@@ -131,7 +123,6 @@ class WisataController extends Controller
     {
         $validated = $request->validate([
             'image' => 'required',
-            'name' => 'required',
             'description' => 'required',
             'price' => 'required',
             'rating' => 'required',
@@ -139,20 +130,20 @@ class WisataController extends Controller
             'id_category' => 'required'
         ]);
 
-        $wisatas = Wisata::find($id);
+        $wisatas= Wisata::find($id);
         if($request->hasFile('image')){
             $request->validate([
                 'image' => 'required|image|mimes:png,jpg|max:2040'
             ]);
-        //File::delete($wisatas->image);
+        
         $image = $request->image;
         $slug = Str::slug($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
-        $image->move(public_path('image'), $new_image);
+        $image->move('uploads/wisata/', $new_image);
         $wisatas->image = 'uploads/wisata/'.$new_image;
         }
 
-        // $wisatas = new Produk;
+        
         $wisatas->name= $request->name;
         $wisatas->description= $request->description;
         $wisatas->rating= $request->rating;
@@ -160,18 +151,10 @@ class WisataController extends Controller
         $wisatas->location = $request->location;
         $wisatas->id_category = $request->id_category;
         $wisatas->save();
+        
+        
 
-        // Wisata::where('id', $id)->update([
-        //     'image' => $validated['image'],
-        //     'name' => $validated['name'],
-        //     'description' => $validated['description'],
-        //     'price' => $validated['price'],
-        //     'rating' => $validated['rating'],
-        //     'location' => $validated['location'],
-        //     'id_category' => $validated['id_category'],
-        // ]);
-
-        return redirect('wisata');
+        return redirect('/wisata');
     }
 
     /**

@@ -17,7 +17,7 @@
         </div>
     @endif
 
-      <form method="post" action="/wisata/{{ $wisata->id }}" id="myForm" enctype="multipart/form-data" class="row g-3">
+      <form method="post" action="/wisata/{{ $wisatas->id }}" id="myForm" enctype="multipart/form-data" class="row g-3">
         @method('PUT')
         @csrf
         <p class="card-description">
@@ -26,22 +26,24 @@
         <div class="mb-3">
             <label for="desk" class="from-label">Nama Wisata</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputEmail1"
-            aria-describedby="emailHelp" name="name" value="{{ $wisata->name }}" > 
+            aria-describedby="emailHelp" name="name" value="{{ $wisatas->name }}" > 
             @error('name')
                 <div class="invalid-feedback">
                     Nama tidak boleh kosong
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="img" class="form-label">Gambar</label>
-            <img class="img-preview img-fluid mb-3 col-sm-3">
-            <input class="form-control" type="file" id="image" name="image" onchange="previewimage()" value="{{ $wisata->image }}">
+        <div>
+        <label for="image" class="form-label">Image</label>
+        <input class="form-control" type="file" name="image" id="formFile"
+        accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
         </div>
+        <div class="mt-3"><img src="{{ asset($wisatas->image) }}" id="output" width="400"></div>
+
         <div class="mb-3">
             <label for="desk" class="from-label">Deskripsi</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror"
-            id="exampleInputPassword1" name="description" value="{{ $wisata->description }}" > 
+            id="exampleInputPassword1" name="description" value="{{ $wisatas->description }}" > 
             @error('description')
                 <div class="invalid-feedback">
                     Deskripsi tidak boleh kosong
@@ -51,7 +53,7 @@
         <div class="mb-3">
             <label for="desk" class="from-label">Rating</label>
             <input type="text" class="form-control @error('rating') is-invalid @enderror"
-            id="exampleInputPassword1" name="rating" value="{{ $wisata->rating }}" > 
+            id="exampleInputPassword1" name="rating" value="{{ $wisatas->rating }}" > 
             @error('rating')
                 <div class="invalid-feedback">
                     Rating tidak boleh kosong
@@ -61,7 +63,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="text" class="form-control @error('price') is-invalid @enderror"
-                id="exampleInputPassword1" name="price" value="{{ $wisata->price }}">
+                id="exampleInputPassword1" name="price" value="{{ $wisatas->price }}">
             @error('price')
                 <div class="invalid-feedback">
                     Harga tidak boleh kosong
@@ -71,7 +73,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Location</label>
             <input type="text" class="form-control @error('location') is-invalid @enderror"
-                id="exampleInputPassword1" name="location" value="{{ $wisata->location }}">
+                id="exampleInputPassword1" name="location" value="{{ $wisatas->location }}">
             @error('location')
                 <div class="invalid-feedback">
                     Lokasi tidak boleh kosong
@@ -83,7 +85,7 @@
             <select class="form-select @error('id_category') is-invalid @enderror" aria-label="Default select example"
             name="id_category">
             @foreach ($category as $item)
-                <option value="{{ $item->id }}" {{ $wisata->id_category == $item->id ? 'selected' : '' }}>
+                <option value="{{ $item->id }}" {{ $wisatas->id_category == $item->id ? 'selected' : '' }}>
                     {{ $item->name }}
                 </option>
             @endforeach

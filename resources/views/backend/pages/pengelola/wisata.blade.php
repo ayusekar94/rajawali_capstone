@@ -26,7 +26,7 @@
                   Rating
                 </th>
                 <th>
-                  Price
+                  Harga Tiket
                 </th>
                 <th>
                   Lokasi
@@ -46,7 +46,12 @@
                   {{ $i->name }}
                 </td>
                 <td>
-                  <img width="60px" height="60px" src="{{ Storage::url('image/').$i->image }}" >
+                @if ($i->image)
+                  <img width="60px" height="60px" src="{{ asset($i->image) }}" >
+                  @else
+                    <p>tidak ada gambar</p>
+                                            
+                   @endif
                 </td>
                 
                 <td>
@@ -67,11 +72,11 @@
                 <td>
                   <form action="/wisata/{{ $i->id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/wisata/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/wisata/{{ $i->id }}/edit" class="badge bg-warning  border-0"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}
-                      <button class="badge bg-danger border-0" onclick="return confirm('apakah anda yakin ?')"><i class="mdi mdi-delete-forever"></i></button>
+                      <button class="badge bg-danger border-0 " onclick="return confirm('apakah anda yakin ?')"><i class="mdi mdi-delete-forever"></i></button>
                     </button>
                     </form> 
                 </td>

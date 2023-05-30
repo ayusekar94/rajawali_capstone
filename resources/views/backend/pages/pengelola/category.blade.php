@@ -14,8 +14,9 @@
             <thead>
               <tr>
                 
+              
                 <th>
-                  Nama 
+                  Nama Kategori
                 </th>
                 <th>
                   Aksi
@@ -23,17 +24,17 @@
               </tr>
             </thead>
             <tbody>
-                
+            
               @foreach ($categorys as $i)
               <tr>
-                
+
                 <td>
                   {{ $i->name }}
                 
                 <td>
                   <form action="/category/{{ $i->id }}" method="POST">
                     {{-- Update  --}}
-                    <a type="button" href="/category/{{ $i->id }}/edit" class="btn btn-warning btn-rounded btn-icon btn-sm"><i class="mdi mdi-lead-pencil"></i></a>
+                    <a type="button" href="/category/{{ $i->id }}/edit" class="badge bg-warning border-0"><i class="mdi mdi-lead-pencil"></i></a>
                     @method("delete")
                     @csrf
                     {{-- Delete  --}}
@@ -42,6 +43,7 @@
                     </form> 
                 </td>
               </tr>
+              
               @endforeach
             </tbody>
           </table>

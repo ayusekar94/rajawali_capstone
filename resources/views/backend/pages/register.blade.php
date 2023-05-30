@@ -17,7 +17,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <center><img src="{{ asset('assets/images/logo.PNG')}}" alt="logo"></center>
+                <center><img src="{{ asset('assets/images/logo.PNG')}}" style="width: 200px;" alt="logo"></center>
               </div> 
               <h4>Hello! let's get started</h4>
               <h6 class="fw-light">Sign up to continue.</h6>
