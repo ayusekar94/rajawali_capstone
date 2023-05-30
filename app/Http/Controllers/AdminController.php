@@ -11,7 +11,6 @@ class AdminController extends Controller
 {
     public function __construct(){
         return $this->middleware('admin') && $this->middleware('login');
-        return $this->middleware('pengelola') && $this->middleware('login');
     }
     
     // DASHBOARD
