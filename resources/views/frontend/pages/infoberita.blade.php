@@ -13,7 +13,7 @@
               </div>
               <div class="col">
                 <div class="card-body my-2">
-                  <h3 class="card-title fw-bold">Card title</h3>
+                  <a class="card-title fw-bold" href="">Card title</a>
                   <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad amet at sint eos quo nesciunt odit? Expedita eos tempore repellendus?</p>
                 </div>
