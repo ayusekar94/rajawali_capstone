@@ -79,6 +79,10 @@ Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
 });
 
+Route::get('/detailwisata', function () {
+    return view('frontend/pages/detailwisata');
+});
+
 // coba Profil user
 Route::get('/keranjang', function () {
     return view('frontend/pages/keranjang');
