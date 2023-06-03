@@ -9,13 +9,11 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengelolaController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\CategoryController;
-// use App\Http\Controllers\VerifikasiPesananController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
-use App\Http\Controllers\HomeController;
-
-
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +56,14 @@ Route::get('/wisata', [WisataController::class,'index'])->name('wisata.index');
 Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
 
 // User
-Route::get('profile', PenggunaController::class, '');
+Route::get('/profile', PenggunaController::class);
+Route::post('/profile', [PenggunaController::class, 'update']);
+Route::get('/detail/{id}', [PenggunaController::class, 'dcart']);
+Route::post('/pesan/{id}', [PenggunaController::class, 'pesan']);
+Route::get('/check-out', [PenggunaController::class, 'check_out']);
+Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
+Route::get('history',  [PenggunaController::class, 'index']);
+// Route::get('history/{id}',  [PenggunaController::class, 'detail']);
 
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
 
@@ -68,10 +73,7 @@ Route::get('profile', PenggunaController::class, '');
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
-
-Route::get('/infoberita', function () {
-    return view('frontend/pages/infoberita');
-});
+Route::get('search',[WisataController::class, 'searchWisata'] );
 
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
@@ -86,12 +88,6 @@ Route::get('/lihatriwayat', function () {
 });
 Route::get('/riwayat', function () {
     return view('frontend/pages/riwayatpemesanan');
-});
-Route::get('/bookingtiket', function () {
-    return view('frontend/pages/user/bookingtiket');
-});
-Route::get('/profiluser', function () {
-    return view('frontend/profil/user');
 });
 Route::get('/transaksi', function () {
     return view('frontend/transaksi');

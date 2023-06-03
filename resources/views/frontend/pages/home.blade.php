@@ -10,8 +10,8 @@
             <h1 class="hero-header margin-bottom-md">Find Your Trip</h1>
             <p class="hero-subheader margin-top-xsm">Selamat Datang, Destinasi Wisata Alam Wonosobo!</p>
             <div class="container-searchbar">
-                <form action="" class="searchbar">
-                    <input type="text" name="searchbar" id="searchbar" placeholder="Discover More!">
+                <form action="{{ url('search') }}" method="GET" class="searchbar" role="search">
+                    <input type="search" name="search" id="searchbar" value="{{ Request::get('search') }}" placeholder="Cari Wisata Tujuan Anda! ">
                     <button type="submit"> <img src={{ asset('assets/frontend/css/images/search.png') }} alt=""></button>
                 </form>
             </div>
