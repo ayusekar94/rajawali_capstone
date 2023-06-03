@@ -21,7 +21,7 @@ class AuthController extends Controller
     // Halaman Login
     public function login(){
         if(session('isLogin') == true){
-            return redirect('/');
+            return redirect('/login');
         }
         
         return view('/login');
@@ -68,7 +68,7 @@ class AuthController extends Controller
     // Logout
     public function logout(){
         session()->flush();
-        return redirect('/login');
+        return redirect('/');
     }
 
     // register

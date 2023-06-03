@@ -10,6 +10,7 @@
         <h4>Search Result</h4>
         <div class="underline mb-4"></div>
         </div>
+        
         @foreach ($searchWisata as $a)
         
             <div class="col-md-3 mt-5">

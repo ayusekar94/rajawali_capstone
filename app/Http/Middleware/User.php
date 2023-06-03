@@ -18,7 +18,7 @@ class User
     public function handle(Request $request, Closure $next)
     {
         if(session('role') != 'user'){
-            return redirect('/');
+            return redirect('/login');
         }
         return $next($request);
     }

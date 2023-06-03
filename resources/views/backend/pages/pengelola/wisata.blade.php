@@ -49,8 +49,7 @@
                 @if ($i->image)
                   <img width="60px" height="60px" src="{{ asset($i->image) }}" >
                   @else
-                    <p>tidak ada gambar</p>
-                                            
+                    <p>tidak ada gambar</p>                   
                    @endif
                 </td>
                 <td>

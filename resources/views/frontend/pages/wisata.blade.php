@@ -7,6 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10 mb-2 mt-5">
         </div>
+        
         @foreach ($wisata as $a)
             <div class="col-md-3 mt-5">
                 <div class="card">
