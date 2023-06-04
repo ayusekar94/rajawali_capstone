@@ -97,7 +97,7 @@ Route::get('/transaksi', function () {
     return view('frontend/transaksi');
 });
 
-// Profil admin
+//Profil admin
 Route::get('/profiladmin', function () {
     return view('frontend/pages/profiladmin');
 });
