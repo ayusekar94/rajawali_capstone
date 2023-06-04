@@ -2,16 +2,74 @@
 @section('title','Search Wisata')
 @section('content')
 
-@include('frontend.include.navbar')
+<!-- @include('frontend.include.navbar') -->
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid mx-lg-5">
+        <img src="{{ asset('assets/frontend/css/images/RawalaText.png') }}" alt="Logo" width="100" class="d-inline-block align-text-top" href="#">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="{{ url('/') }}" class="nav-link text-white {{ request()->is('/') ? ' active-link' : '' }}">
+                  <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/infoBerita">Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/lwisata">Wisata</a>
+            </li>
+            <li class="nav-item dropdown" {{ session('isLogin')?"":"style=display:none" }}>
+            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome, {{ session('name') }}
+            </a>
+            @if ( session('role')== "user" ? "" : "style=display:none" )
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/dashboard">Dashbord</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+            @else
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <?php
+                  $cart_utama = \App\Models\Cart::where('user_id', session('id'))->where('status',0)->first();
+                  if(!empty($cart_utama))
+                  {
+                    $notif = \App\Models\Transaksi::where('cart_id', $cart_utama->id)->count();
+                  }
+                ?>
+                <a class="dropdown-item" href="{{ url('check-out') }}">
+                    Keranjang
+                    @if(!empty($notif))
+                      <span class="badge badge-danger">{{ $notif }}</span>
+                    @endif
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/history">Riwayat</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+            @endif
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 mb-2 mt-5"> 
+
         <h4>Search Result</h4>
-        <div class="underline mb-4"></div>
+        <hr>
+        <!-- <form class="d-flex" style="max-width: 300px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success"  type="submit">Search</button>
+      </form> -->
+        
         </div>
         
-        @foreach ($searchWisata as $a)
+        @forelse ($searchWisata as $a)
         
             <div class="col-md-3 mt-5">
                 <div class="card">
@@ -27,14 +85,20 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+            @empty
+                  <div class="col-md-3 mt-5"></div>
+                  <center><h4>No Such Product Found</h4></center>
+        @endforelse
+                  <!-- <div class="col-md-3 mt-5"> 
+                    {{ $searchWisata->appends(request()->input())->links() }}
+                  </div> -->
     </div>
 </div>
 {{-- <section class="homepage4">
     <div class="container">
         <div class="row my-5">
             <h2 class="text-center margin-bottom-lg fw-bold">Rekomendasi Wisata</h2>
-            @foreach ($searchWisata as $item)
+            @forelse ($searchWisata as $item)
                 <div class="col-4">
                     <div class="card border-0" style="width: 18rem;">
                         <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
@@ -45,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @endforelse
         </div>
     </div>
 </section> --}}

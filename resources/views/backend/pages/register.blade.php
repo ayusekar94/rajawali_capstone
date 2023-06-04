@@ -18,6 +18,7 @@
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
 
+
 <!-- <<<<<<< HEAD -->
                 <center><img src="{{ asset('assets/images/logo.PNG')}}" style="width: 200px;" alt="logo"></center>
 <!-- ======= -->

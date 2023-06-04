@@ -72,8 +72,9 @@ class WisataController extends Controller
             'id_category' => 'required' 
         ]);
 
+        
         //upload image 
-        $image = $request->image;  
+        $image = $request->image; 
         $image = $request->image;
         $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;

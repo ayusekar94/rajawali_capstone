@@ -101,6 +101,16 @@ class WisataSeeder extends Seeder
                 'location' => 'Garung, Desa Reco, Kecamatan Kertek, Kabupaten Wonosobo',
                 'id_category' => 1,
             ],
+            [
+                'image' => '',
+                'name' => 'Curug Winong',
+                'description' => 'Curug Winong merupakan air terjun tersembunyi yang ada di Desa Wisata Winongsari, sebuah tempat wisata alam yang menjanjikan
+                 keindahan aliran air yang masih alami, Curug Winong memiliki tinggi sekitar 50 meter.',            
+                'price' => 5000,              
+                'rating'=> 4,
+                'location' => 'Desa Winongsari, Kecamatan Kaliwiro, Kabupaten Wonosobo',
+                'id_category' => 2,
+            ],
         ];
         foreach($data as $d){
             Wisata::create($d);

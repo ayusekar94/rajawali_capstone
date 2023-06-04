@@ -73,10 +73,14 @@ Route::get('history',  [PenggunaController::class, 'index']);
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
-Route::get('search',[WisataController::class, 'searchWisata'] );
 
+Route::get('search',[WisataController::class, 'searchWisata'] );
 Route::get('/detailberita', function () {
     return view('frontend/pages/detailberita');
+});
+
+Route::get('/detailwisata', function () {
+    return view('frontend/pages/detailwisata');
 });
 
 // coba Profil user

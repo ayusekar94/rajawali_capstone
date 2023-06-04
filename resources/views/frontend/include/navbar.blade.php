@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-md-3">
     <div class="container-fluid mx-lg-5">
         <img src="{{ asset('assets/frontend/css/images/RawalaText.png') }}" alt="Logo" width="100" class="d-inline-block align-text-top" href="#">
-      <a class="navbar-brand" href="#"></a>
+      {{-- <a class="navbar-brand" href="#"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -9,7 +9,7 @@
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation"> --}}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -48,7 +48,7 @@
                   $cart_utama = \App\Models\Cart::where('user_id', session('id'))->where('status',0)->first();
                   if(!empty($cart_utama))
                   {
-                    $notif = \App\Models\Transaksi::where('cart_id', $cart_utama->id)->count(); 
+                    $notif = \App\Models\Transaksi::where('cart_id', $cart_utama->id)->count();
                   }
                 ?>
                 <a class="dropdown-item" href="{{ url('check-out') }}">
@@ -63,7 +63,7 @@
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
             @endif
-          </li> 
+          </li>
         </ul>
       </div>
     </div>
