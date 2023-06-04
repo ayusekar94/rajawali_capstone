@@ -96,3 +96,23 @@ Route::get('/riwayat', function () {
 Route::get('/transaksi', function () {
     return view('frontend/transaksi');
 });
+
+/ Profil admin
+Route::get('/profiladmin', function () {
+    return view('frontend/pages/profiladmin');
+});
+
+// Profil user
+Route::get('/profiluser', function () {
+    return view('frontend/pages/profiluser');
+});
+
+// Transaksi
+Route::get('/transaksi', function () {
+    return view('frontend/pages/transaksi');
+});
+
+// booking tiket
+Route::get('/bookingtiket', function () {
+    return view('frontend/pages/bookingtiket');
+});
