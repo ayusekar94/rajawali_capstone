@@ -7,8 +7,6 @@
     <div class="container">
         <div class="row my-5">
             <div class="col-4">
-
-            </div>
             <div class="col-3">
                 <div class="card border-0 bg-light" style="width: 30rem;">
                     <form>
