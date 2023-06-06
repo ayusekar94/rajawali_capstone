@@ -3,10 +3,12 @@
 @section('content')
 
 @include('frontend.include.navbar')
-<section class="homepage4">
+<section class="bookingtiket" style="margin-top: 90px;">
     <div class="container">
         <div class="row my-5">
             <div class="col-4">
+
+            </div>
             <div class="col-3">
                 <div class="card border-0 bg-light" style="width: 30rem;">
                     <form>
