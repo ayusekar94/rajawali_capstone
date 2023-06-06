@@ -6,6 +6,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 mb-2 mt-5">
+            <form class="d-flex" style="max-width: 300px;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success"  type="submit">Search</button>
+            </form>
         </div>
         
         @foreach ($wisata as $a)
