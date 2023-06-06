@@ -1,51 +1,45 @@
 @extends('frontend.include.template')
-@section('title','Pofil User')
+@section('title','Profil User')
 @section('content')
 
 @include('frontend.include.navbar')
-<section class="homepage4">
-    <div class="container">
-        <div class="row my-5">
+<section class="profiluser" style="margin-top: 50px">
+    <div class="container text-center padding-top-xlg">
+          <div class="row margin-top-xlg margin-bottom-xlg">
             <div class="col-4">
-                <div class="card border-0" style="width: 16rem;">
-                    <img src={{ asset('assets/frontend/css/images/user.jpg') }} class="card-img-top rounded-circle" alt="...">
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label"> </label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
+                <div class="col-11">
+                    <img class="img-responsive center-block" src={{ asset('assets/frontend/css/images/user.png') }}>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card border-0 bg-light" style="width: 30rem;">
-                    <form>
+              </div>
+                <div class="col-6  text-left pull-right border-2">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                            <input type="textarea" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">No HP</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Nama </label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput2" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Masukkan Email">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput3" class="form-label">No.Hp </label>
+                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Masukkan No.Hp">
+                          </div>
+                          <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Password">
                         </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-outline-dark btn-sm">Simpan & Bayar</button>
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+                            <button type="button" class="btn btn-outline-dark btn-sm">Simpan</button>
                         </div>
-                      </form>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
-    </div>
 </section>
 @endsection
