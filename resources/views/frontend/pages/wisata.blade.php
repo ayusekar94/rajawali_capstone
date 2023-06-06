@@ -6,11 +6,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 mb-2 mt-5">
-            <form class="d-flex" style="max-width: 300px;">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success"  type="submit">Search</button>
-            </form>
         </div>
+        <div class="col-md-10 mr-5 mt-5">
+            <form action="{{ url('search') }}" method="GET" class="d-flex" style="max-width: 300px;">
+        <input class="form-control me-2" type="search" name="search" id="searchbar" value="{{ Request::get('search') }}" placeholder="Cari..." aria-label="Search">
+        <button class="btn btn-outline-primary"  type="submit"><i class="fa fa-search"></i></button>
+      </form> 
+        </div>
         
         @foreach ($wisata as $a)
             <div class="col-md-3 mt-5">

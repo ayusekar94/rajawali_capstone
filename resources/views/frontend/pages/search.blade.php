@@ -1,7 +1,9 @@
 @extends('frontend.include.template')
 @section('title','Search Wisata')
 @section('content')
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
 <!-- @include('frontend.include.navbar') -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -87,7 +89,7 @@
             </div>
             @empty
                   <div class="col-md-3 mt-5"></div>
-                  <center><h4>No Such Product Found</h4></center>
+                  <center><h4 style="font-family: 'Arvo', serif;">Produk tidak ditemukan</h4></center>
         @endforelse
                   <!-- <div class="col-md-3 mt-5"> 
                     {{ $searchWisata->appends(request()->input())->links() }}
