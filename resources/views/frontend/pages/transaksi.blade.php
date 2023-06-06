@@ -3,7 +3,7 @@
 @section('content')
 
 @include('frontend.include.navbar')
-<section class="homepage4">
+<section class="transaksi" style="margin-top: 70px">
   <div class="container">
       <div class="row my-5">
           <div class="col-3">
@@ -31,3 +31,4 @@
   </div>
 </section>
 @endsection
+
