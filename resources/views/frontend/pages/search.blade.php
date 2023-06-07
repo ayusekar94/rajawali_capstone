@@ -3,7 +3,12 @@
 @section('content')
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&display=swap" rel="stylesheet">
+
 <!-- @include('frontend.include.navbar') -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,11 +69,6 @@
 
         <h4>Search Result</h4>
         <hr>
-        <!-- <form class="d-flex" style="max-width: 300px;">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success"  type="submit">Search</button>
-      </form> -->
-        
         </div>
         
         @forelse ($searchWisata as $a)
@@ -89,7 +89,8 @@
             </div>
             @empty
                   <div class="col-md-3 mt-5"></div>
-                  <center><h4 style="font-family: 'Arvo', serif;">Produk tidak ditemukan</h4></center>
+                  <center><h3 style="font-family: 'Signika Negative', sans-serif;">404</h3></center>
+                  <center><h4 style="font-family: 'Inconsolata', monospace;">OOPS!|Wisata tidak ditemukan</h4></center>
         @endforelse
                   <!-- <div class="col-md-3 mt-5"> 
                     {{ $searchWisata->appends(request()->input())->links() }}
