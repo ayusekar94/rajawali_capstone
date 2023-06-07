@@ -76,11 +76,6 @@ Route::get('/struk/{id}', [PenggunaController::class, 'struk']);
 Route::post('/komen/{id}', [PenggunaController::class, 'insert']);
 Route::get('/search',[WisataController::class, 'searchWisata'] );
 
-// Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
-
-
-// Route::get('/pengelola/wisata/{id}/delete', [WisataController::class, 'destroy']);
-
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
