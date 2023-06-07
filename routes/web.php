@@ -13,7 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
-
+use App\Http\Controllers\CommentController;
 
 
 /*
@@ -29,7 +29,10 @@ use App\Http\Controllers\PromosiController;
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('HomePage');
 Route::get('/infoBerita', [HomeController::class, 'bindex']);
+Route::get('/detailberita/{id}', [HomeController::class, 'berita']);
 Route::get('/lwisata', [HomeController::class, 'wisata']);
+Route::get('/detailwisata/{id}', [HomeController::class, 'dwisata']);
+// Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 // Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
@@ -44,9 +47,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('/admin', AdminController::class);
 Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/user', UserController::class);
+Route::get('/transaksilist', [AdminController::class, 'transaksi']);
+
 
 // Pengelola
-Route::resource('/pengelola', PengelolaController::class);
 Route::resource('/wisata', WisataController::class);
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
@@ -55,16 +59,24 @@ Route::resource('/promosi', PromosiController::class);
 Route::resource('/category', CategoryController::class);
 Route::get('/wisata', [WisataController::class,'index'])->name('wisata.index');
 Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
+Route::get('/pesanan', [PromosiController::class, 'pesanan']);
+// verifikasi pembayaran
+Route::get('/verify', [PromosiController::class, 'verify']);
+Route::get('/block', [PromosiController::class, 'block']);
 
 // User
 Route::get('/profile', PenggunaController::class);
 Route::post('/profile', [PenggunaController::class, 'update']);
 Route::get('/detail/{id}', [PenggunaController::class, 'dcart']);
 Route::post('/pesan/{id}', [PenggunaController::class, 'pesan']);
+Route::put('/upload/{id}', [PenggunaController::class, 'epesan']);
 Route::get('/check-out', [PenggunaController::class, 'check_out']);
 Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
-Route::get('history',  [PenggunaController::class, 'index']);
-// Route::get('history/{id}',  [PenggunaController::class, 'detail']);
+Route::get('/history',  [PenggunaController::class, 'index']);
+Route::get('/struk/{id}', [PenggunaController::class, 'struk']);
+// Route::resource('/komen', CommentController::class);
+Route::post('/komen/{id}', [PenggunaController::class, 'insert']);
+Route::get('/search',[WisataController::class, 'searchWisata'] );
 
 // Route::get('/pengelola/wisata/{id}/edit', [WisataController::class, 'edit']);
 
@@ -75,20 +87,3 @@ Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
 
-Route::get('/detailberita', function () {
-    return view('frontend/pages/detailberita');
-});
-
-// coba Profil user
-Route::get('/keranjang', function () {
-    return view('frontend/pages/keranjang');
-});
-Route::get('/lihatriwayat', function () {
-    return view('frontend/pages/lihatriwayat');
-});
-Route::get('/riwayat', function () {
-    return view('frontend/pages/riwayatpemesanan');
-});
-Route::get('/transaksi', function () {
-    return view('frontend/transaksi');
-});
