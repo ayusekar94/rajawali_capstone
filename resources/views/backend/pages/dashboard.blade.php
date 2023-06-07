@@ -82,7 +82,7 @@
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Transaksi</p>
-                            <h3 class="rate-percentage">{{ $jml_wisata }}</h3>
+                            <h3 class="rate-percentage">{{ $jml_transaksi }}</h3>
                           </div>
                         </div>
                       </div>

@@ -21,6 +21,7 @@ class DashboardController extends Controller
              'jml_category' => DB::table('categories')->count(),
              'jml_berita' => DB::table('beritas')->count(),
              'jml_promosi' => DB::table('promosis')->count(),
+             'jml_transaksi' => DB::table('transaksis')->count(),
         ]);
         
     }

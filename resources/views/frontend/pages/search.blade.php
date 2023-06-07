@@ -73,17 +73,15 @@
         
         @forelse ($searchWisata as $a)
         
-            <div class="col-md-3 mt-5">
+            <div class="col-md-3 mt-2">
                 <div class="card">
-                    <img width="200px" height="200px" src="{{ asset('assets/frontend/css/images/Sinsu.jpeg') }}" class="card-img-top" alt="...">
+                    <img width="200px" height="200px" src="{{ asset($a->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{ $a->name }}</h5>
                     <p class="card-text">
-                        {{ $a->description }} <br>
-                        <strong>Harga : </strong> Rp. {{ number_format($a->price) }} <br>
-                        {{-- <strong>Stok :</strong> {{ $a->stok }} <br> --}}
+                      {{ mb_strimwidth($a->description, 0, 40, "..."); }}
                     </p>
-                    <a href="/detail/{{ $a->id }}" class="btn btn-primary">Pesan Tiket</a>
+                    <a href="/detailwisata/{{ $a->id }}" class="item"><i class="item-primary me-0"></i>Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -97,23 +95,4 @@
                   </div> -->
     </div>
 </div>
-{{-- <section class="homepage4">
-    <div class="container">
-        <div class="row my-5">
-            <h2 class="text-center margin-bottom-lg fw-bold">Rekomendasi Wisata</h2>
-            @forelse ($searchWisata as $item)
-                <div class="col-4">
-                    <div class="card border-0" style="width: 18rem;">
-                        <img src={{ asset('assets/frontend/css/images/Sinsu.jpeg') }} class="card-img-top rounded" alt="...">
-                        <div class="card-body">
-                            <h5 class="fw-bold">{{ $item->name }}</h5>
-                            <p class="card-text">{{ $item->description }}</p>
-                            <a href="/bookingtiket" class="btn btn-primary btn-sm" >Pesan Tiket</a><br>
-                        </div>
-                    </div>
-                </div>
-            @endforelse
-        </div>
-    </div>
-</section> --}}
 @endsection

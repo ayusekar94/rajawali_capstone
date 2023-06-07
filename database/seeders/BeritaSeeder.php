@@ -27,7 +27,7 @@ class BeritaSeeder extends Seeder
                 'image' => '',
                 'name' => 'Pemkab Wonosobo Adakan Pelatihan Pemandu Wisata Budaya',
                 'description' => 'Melalui pelatihan pengembangan sumber daya manusia bidang pariwisata khususnya pemandu wisata, diharapkan mampu 
-                                   menghasilkan pemandu yang berkualitas, sehingga pada gilirannya akan mampu meningkatkan angka kunjungan wisatawan di Wonosobo.',
+                                   menghasilkan pemandu yang berkualitas.',
                 
             ],
             [

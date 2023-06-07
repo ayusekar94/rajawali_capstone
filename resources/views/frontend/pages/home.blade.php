@@ -10,13 +10,8 @@
             <h1 class="hero-header margin-bottom-md">Find Your Trip</h1>
             <p class="hero-subheader margin-top-xsm">Selamat Datang, Destinasi Wisata Alam Wonosobo!</p>
             <div class="container-searchbar">
-<<<<<<< HEAD
-                <form action="" class="searchbar">
-                    {{-- <input type="text" name="searchbar" id="searchbar" placeholder="Discover More!"> --}}
-=======
                 <form action="{{ url('search') }}" method="GET" class="searchbar" role="search">
                     <input type="search" name="search" id="searchbar" value="{{ Request::get('search') }}" placeholder="Cari Wisata Tujuan Anda! ">
->>>>>>> bc8f166341bad2b07f4530139f00bb6255a8e539
                     <button type="submit"> <img src={{ asset('assets/frontend/css/images/search.png') }} alt=""></button>
                 </form>
             </div>
@@ -66,8 +61,12 @@
     <div class="full-width">
         <div class="container text-center">
             <div class="row margin-bottom-xlg">
-                <h2 class="text-center margin-bottom-lg fw-bold">Promosi</h2>
-                <img class="img-responsive center-block" src={{ asset($promosi->image) }}>
+                @if ($promosi)
+                    <h2 class="text-center margin-bottom-lg fw-bold">Promosi</h2>
+                    <img class="img-responsive center-block" src={{ asset($promosi->image) }}>
+                @else
+                    
+                @endif
             </div>
         </div>
     </div>
