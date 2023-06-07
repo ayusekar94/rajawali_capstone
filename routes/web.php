@@ -13,8 +13,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PromosiController;
+<<<<<<< HEAD
 use App\Http\Controllers\CommentController;
 
+=======
+use Illuminate\Routing\Route as RoutingRoute;
+>>>>>>> bc8f166341bad2b07f4530139f00bb6255a8e539
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +84,48 @@ Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');
 
 
+<<<<<<< HEAD
+=======
+Route::get('search',[WisataController::class, 'searchWisata'] );
+Route::get('/detailberita', function () {
+    return view('frontend/pages/detailberita');
+});
+
+Route::get('/detailwisata', function () {
+    return view('frontend/pages/detailwisata');
+});
+
+// coba Profil user
+Route::get('/keranjang', function () {
+    return view('frontend/pages/keranjang');
+});
+Route::get('/lihatriwayat', function () {
+    return view('frontend/pages/lihatriwayat');
+});
+Route::get('/riwayat', function () {
+    return view('frontend/pages/riwayatpemesanan');
+});
+Route::get('/transaksi', function () {
+    return view('frontend/transaksi');
+});
+
+//Profil admin
+Route::get('/profiladmin', function () {
+    return view('frontend/pages/profiladmin');
+});
+
+// Profil user
+Route::get('/profiluser', function () {
+    return view('frontend/pages/profiluser');
+});
+
+// Transaksi
+Route::get('/transaksi', function () {
+    return view('frontend/pages/transaksi');
+});
+
+// booking tiket
+Route::get('/bookingtiket', function () {
+    return view('frontend/pages/bookingtiket');
+});
+>>>>>>> bc8f166341bad2b07f4530139f00bb6255a8e539

@@ -41,6 +41,17 @@ class WisataController extends Controller
         return view('backend.pages.pengelola.wisata_add', $data);
     }
 
+    public function searchWisata(Request $request)
+    {
+        if($request->search){
+            $searchWisata = Wisata::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(15);
+            return view('frontend.pages.search', compact('searchWisata'));
+        }
+        else{
+            return redirect()->back()->with('message', 'Empty Search');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,13 +71,10 @@ class WisataController extends Controller
             'location' => 'required', 
             'id_category' => 'required' 
         ]);
+
         
         //upload image 
         $image = $request->image; 
- 
-        //upload image 
-        // $image = $request->file('image'); 
-        // $image->storeAs('gambar', $image->hashName());
         $image = $request->image;
         $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
