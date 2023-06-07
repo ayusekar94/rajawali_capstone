@@ -32,7 +32,6 @@ Route::get('/infoBerita', [HomeController::class, 'bindex']);
 Route::get('/detailberita/{id}', [HomeController::class, 'berita']);
 Route::get('/lwisata', [HomeController::class, 'wisata']);
 Route::get('/detailwisata/{id}', [HomeController::class, 'dwisata']);
-// Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 // Login & Register
 Route::get('/register', [AuthController::class, 'rindex']);
@@ -74,7 +73,6 @@ Route::get('/check-out', [PenggunaController::class, 'check_out']);
 Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
 Route::get('/history',  [PenggunaController::class, 'index']);
 Route::get('/struk/{id}', [PenggunaController::class, 'struk']);
-// Route::resource('/komen', CommentController::class);
 Route::post('/komen/{id}', [PenggunaController::class, 'insert']);
 Route::get('/search',[WisataController::class, 'searchWisata'] );
 
