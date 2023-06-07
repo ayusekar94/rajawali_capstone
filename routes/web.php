@@ -74,7 +74,7 @@ Route::get('/konfirmasi', [PenggunaController::class, 'konfirmasi']);
 Route::get('/history',  [PenggunaController::class, 'index']);
 Route::get('/struk/{id}', [PenggunaController::class, 'struk']);
 Route::post('/komen/{id}', [PenggunaController::class, 'insert']);
-Route::get('/search',[WisataController::class, 'searchWisata'] );
+
 
 Route::post('/wisata', [WisataController::class, 'store'])->name('wisata');
 Route::put('/pengelola/wisata/{id}',[WisataController::class, 'update'])->name('wisata');

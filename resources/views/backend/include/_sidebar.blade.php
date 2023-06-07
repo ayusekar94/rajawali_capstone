@@ -18,7 +18,7 @@
             <li class="nav-item"> <a class="nav-link" href="{{url('admin')}}">Administrator</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('pengelola')}}">Pengelola</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('user')}}">User</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{url('transaksi')}}">Transaksi</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('transaksilist')}}">List Transaksi</a></li>
           </ul>
         </div>
       </li>

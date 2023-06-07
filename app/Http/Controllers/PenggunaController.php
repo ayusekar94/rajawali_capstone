@@ -7,7 +7,8 @@ use App\Models\User;
 use App\Models\Wisata;
 use App\Models\Cart;
 use App\Models\Transaksi;
-use Carbon\Carbon;
+use App\Models\Comment;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 class PenggunaController extends Controller
@@ -87,6 +88,7 @@ class PenggunaController extends Controller
 	    	$transaksi->wisata_id = $wisata->id;
 	    	$transaksi->cart_id = $cart_baru->id;
 	    	$transaksi->jumlah = $request->jumlah_pesan;
+			$transaksi->image = "aaa";
 	    	$transaksi->jumlah_harga = $wisata->price*$request->jumlah_pesan;
 	    	$transaksi->save();
     	}else 
@@ -106,7 +108,31 @@ class PenggunaController extends Controller
     	$cart->jumlah_harga = $cart->jumlah_harga+$wisata->price*$request->jumlah_pesan;
     	$cart->update();
     	
-    	return redirect('/');  
+    	return redirect('/check-out');  
+    }
+
+    // upload bukti transaksi
+	public function epesan(Request $request, $id)
+    {
+        $transaksi= Transaksi::find($id);
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg|max:2040'
+            ]);
+        
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/transaksi/', $new_image);
+        $transaksi->image = 'uploads/transaksi/'.$new_image;
+        }
+
+        
+        // $transaksi->name= $request->name;
+        // $transaksi->description= $request->description;
+        $transaksi->save();
+
+        return redirect('/konfirmasi');
     }
 
 	// Memasukkan barang ke keranjang
@@ -122,6 +148,7 @@ class PenggunaController extends Controller
         
         return view('frontend.pages.user.keranjang', compact('cart', 'transaksi', 'title'));
     }
+
 
 	// Konfrimasi pesanan yang ingin di check_out
 	public function konfirmasi()
@@ -145,7 +172,7 @@ class PenggunaController extends Controller
             $wisata->update();
         }
 
-        return redirect('history/'.$cart_id);
+        return redirect('/history');
     }
 
 	// Tampil History 
@@ -157,12 +184,40 @@ class PenggunaController extends Controller
     	return view('frontend.pages.user.history', $data);
     }
 
-    // public function detail($id)
-    // {
-    //     $title = 'Detail Riwayat';
-    // 	$cart = Cart::where('id', $id)->first();
-    // 	$transaksi = Transaksi::where('cart_id', $cart->id)->get();
+    public function struk($id)
+    {
+        $title = 'Detail Riwayat';
+    	$cart = Cart::where('id', $id)->first();
+    	$transaksi = Transaksi::where('cart_id', $cart->id)->get();
 
-    //  	return view('frontend.history.detail', compact('title','cart','transaksi'));
-    // }
+    	return view('frontend.pages.user.struk', compact('title','cart','transaksi'));
+    }
+
+    // tambah komentar
+    public function insert(Request $request, $id)
+    {
+        // dd($request->all(),$id);
+        $wisata = Wisata::where('id', $id)->first();
+
+    	// cek validasi
+    	$komen = Comment::where('user_id', session('id'))->first();
+        // dd($komen);
+    	// simpan ke database comment
+    	if($komen)
+    	{
+            // $image = $request->image;
+            // $slug = ($image->getClientOriginalName());
+            // $new_image = time() .'_'. $slug;
+            // $image->move('uploads/comment/' ,$new_image);
+           
+    		$comment = new comment;
+            $comment->wisata_id = $wisata->id;
+	    	$comment->user_id = session('id');
+	    	$comment->description = $request->description ;
+	    	$comment->image = 'aa';
+	    	$comment->save();
+        }
+        
+        return view('frontend.pages.detailwisata', compact('wisata','komen'));
+    }
 }

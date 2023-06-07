@@ -46,15 +46,16 @@
                   {{ $i->name }}
                 </td>
                 <td>
-                @if ($i->image)
+                  <img width="60px" height="60px" src="{{ asset($i->image) }}" >
+                {{-- @if ($i->image)
                   <img width="60px" height="60px" src="{{ asset($i->image) }}" >
                   @else
                     <p>tidak ada gambar</p>                   
                    @endif
-                  <img width="60px" height="60px" src="{{ asset('image/').$i->image }}" >
+                  <img width="60px" height="60px" src="{{ asset('image/').$i->image }}" > --}}
                 </td>
                 <td>
-                  {{ $i->description}}
+                  {{ mb_strimwidth($i->description, 0, 10, "..."); }}
                 </td>
                 <td>
                   {{ $i->rating}}
@@ -63,7 +64,7 @@
                   {{ $i->price}}
                 </td>
                 <td>
-                  {{ $i->location}}
+                  {{ mb_strimwidth($i->location, 0, 10, "..."); }}
                 </td>
                 <td>
                    {{$i->category->name }}

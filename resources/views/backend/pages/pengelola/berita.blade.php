@@ -44,7 +44,7 @@
                    @endif
                 </td>
                 <td>
-                  {{ $i-> description}}
+                  {{ mb_strimwidth($i->description, 0, 40, "..."); }}
                 </td>
                 <td>
                   <form action="/berita/{{ $i->id }}" method="POST">

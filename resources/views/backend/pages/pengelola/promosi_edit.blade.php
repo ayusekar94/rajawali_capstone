@@ -5,11 +5,8 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Edit Informasi Promosi</h4>
-<<<<<<< HEAD
-      <form class="form-sample" method="POST" action="/promosi/{{ $promosi->id }}" id="myForm" enctype="multipart/form-data" class="row g-3">
-=======
+      {{-- <form class="form-sample" method="POST" action="/promosi/{{ $promosi->id }}" id="myForm" enctype="multipart/form-data" class="row g-3"> --}}
       <form class="form-sample" method="POST" action="/promosi/{{ $item->id }}" enctype="multipart/form-data">
->>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
         @method('PUT')
         @csrf
         <p class="card-description">
@@ -17,10 +14,9 @@
         </p>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nama</label>
-<<<<<<< HEAD
-            <input type="text" class="form-control " id="exampleInputEmail1" name="name" value="{{ $promosi->name }}" placeholder="nama">
+            <input type="text" class="form-control " id="exampleInputEmail1" name="name" value="{{ $item->name }}" placeholder="nama">
         </div>
-        <div>
+        {{-- <div>
         <label for="image" class="form-label">Image</label>
         <input class="form-control" type="file" name="image" id="formFile"
         accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
@@ -29,9 +25,8 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Potongan</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="price" value="{{ $promosi->price }}" placeholder="price">
-=======
             <input type="text" class="form-control" name="name" value="{{ $item->name }}" >
-        </div>
+        </div> --}}
         <div class="mb-3 mt-4">
             <label for="image" class="form-label">Image</label>
             <img class="img-preview img-fluid mb-3 col-sm-3">
@@ -40,7 +35,6 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Potongan</label>
             <input type="text" class="form-control" name="price" value="{{ $item->price }}" >
->>>>>>> f5957e03bf91ec283d0eadaa1380e449512e8b64
         </div>
         <button type="submit" class="btn btn-primary me-2">Save</button>
         <button class="btn btn-light">Cancel</button>

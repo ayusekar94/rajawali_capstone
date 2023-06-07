@@ -10,13 +10,19 @@
             {{-- <img src="{{ asset('assets/images/logo.png') }}" class="rounded mx-auto d-block" width="150" alt=""> --}}
         </div>
         <div class="col-md-12 mt-5 mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Riwayat Pemesanan</li>
+                </ol>
+            </nav>
             <div class="card">
                 <div class="card-body">
                     <h3><i class="fa fa-history"></i> Riwayat Pemesanan</h3>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Tanggal</th>
+                                <th>Tanggal Kunjungan</th>
                                 <th>Status</th>
                                 <th>Jumlah Harga</th>
                                 <th>Aksi</th>
@@ -25,17 +31,22 @@
                         <tbody>
                             
                             @foreach($carts as $item)
-                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->tanggal }}</td>
                                 <td>
                                     @if($item->status == 1)
-                                        Sudah Pesan & Belum dibayar
+                                        Menunggu Konfrimasi
                                     @else
-                                        Sudah dibayar 
+                                        Sudah dibayar
                                     @endif
                                 </td>
-                                <td>Rp. {{ number_format($item->jumlah_harga) }}</td>
+                                <td>Rp. {{ number_format($item->jumlah_harga-$item->kode) }}</td>
                                 <td>
-                                    <a href="{{ url('history') }}/{{ $item->id }}" class="btn btn-primary"><i class="fa fa-file-text-o"></i> Detail</a>
+                                    @if ($item->status == 1)
+                                        
+                                    @else
+                                    <a href="{{ url('struk') }}/{{ $item->id }}" class="btn btn-primary"><i class="fa fa-ticket"></i></a>
+                                    {{-- <a href="/komen" class="btn btn-primary"><i class="fa fa-comments-o"></i></a> --}}
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

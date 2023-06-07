@@ -5,12 +5,12 @@
 @include('frontend.include.navbar')
     <div class="container">
         <div class="row mt-5">
-            <div class="col-4 mt-5 ">
+            <div class="col-3 mt-5 ">
                 <div class="card border-0" style="width: 16rem;">
                     <img src="https://www.its.ac.id/aktuaria/wp-content/uploads/sites/100/2018/03/user.png" class="card-img-top rounded-circle" alt="...">
                 </div>
             </div>
-            <div class="col-md-7 mt-5">
+            <div class="col-md-8 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <h4><i class="fa fa-pencil"></i> Edit Profile</h4>

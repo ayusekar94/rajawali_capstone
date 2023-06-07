@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Promosi;
+use App\Models\Cart;
+use App\Models\Transaksi;
 
 class PromosiController extends Controller
 {
@@ -69,24 +71,14 @@ class PromosiController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            'image'=> 'image|file|max:1024',
+            // 'image'=> 'image|file|max:1024',
+            
         ]);
 
-        //check if image is uploaded
-        if ($request->hasFile('image')) {
-
-            //upload new image
-            $image = $request->file('image');
-            $image->storeAs('gambar', $image->hashName());
-
-            //delete old image
-            Storage::delete('gambar'.$promosi->image);
-
-            //update post with new image
-            $promosi->update([
-                'image'     => $image->hashName(),
-                'name' => $request->name,
-                'price' =>$request->price,
+        $promosi= Promosi::find($id);
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg|max:2040'
             ]);
         
         $image = $request->image;
@@ -100,7 +92,6 @@ class PromosiController extends Controller
         $promosi->name= $request->name;
         $promosi->price= $request->price;
         $promosi->save();
-
         return redirect('/promosi');
     }
 
@@ -109,4 +100,36 @@ class PromosiController extends Controller
         Promosi::destroy($id);
         return redirect("/promosi")->with(['success' => 'Data Berhasil Dihapus!']);
     }
+
+    // transaksi dashbord - role pengelola
+	public function pesanan()
+    {
+		$data ['title'] = 'Transaksi';
+        $data['transaksi'] = Transaksi::with('cart', 'wisata')->get();
+
+    	return view('backend.pages.pengelola.pesanan', $data);
+    }
+
+    public function verify(Request $request, Cart $cart){
+      
+        $cart = Cart::find($request)->first();
+
+        if($cart){
+            $cart->status = '2';
+            $cart->save();
+        }
+
+        return redirect('/pesanan');
+    }
+   
+	public function block(Request $request){
+		  
+	    $cart = Cart::find($request)->first();
+	    if($cart){
+            $cart->status = '1';
+	        $cart->save();
+	    }
+   
+	    return redirect('/pesanan');
+	}
 }

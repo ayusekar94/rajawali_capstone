@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaksis', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('wisata_id');
             $table->foreign('wisata_id')->references('id')->on('wisatas');
-            $table->foreignId('cart_id');
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->string('description');
             $table->string('image');
-            $table->integer('jumlah');
-            $table->integer('jumlah_harga');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksis');
+        Schema::dropIfExists('comments');
     }
 };

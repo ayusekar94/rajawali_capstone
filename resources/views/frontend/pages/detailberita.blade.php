@@ -5,13 +5,20 @@
 @include('frontend.include.navbar')
 
 <section class="detailberita">
-    <div class="container">
-        <div class="card my-3 border-0" style="background-color: #cdcdcd">
+    <div class="container mt-5">
+        <div class="card my-5 border-0" style="background-color: #eceaea">
             <div class="card-body">
-                <h2 class="card-title fw-bold text-center my-3">Title</h2>
-                <img src="https://cdn-2.tstatic.net/banyumas/foto/bank/images/wisatawan-menikmati-kuliner-di-kampung-sikunir-kabupaten-wonosobo-minggu-2692021.jpg" class="card-img my-2 img-fluid mx-auto width-fit" alt="...">
+                <h2 class="card-title fw-bold text-center my-1">{{ $berita->name }}</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/infoBerita">Berita</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Detail Berita</li>
+                    </ol>
+                </nav>
+                <img src="{{ asset($berita->image) }}" class="card-img my-2 img-fluid mx-auto width-fit" alt="...">
                 <p class="card-text mt-1"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                <p class="card-text mx-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore autem cumque libero natus qui obcaecati! Nam veniam eum nisi magnam rerum exercitationem numquam nostrum, dicta nemo eos, magni ea ratione.</p>
+                <p class="card-text mx-2">{{ $berita->description }}</p>
 
 
             </div>
