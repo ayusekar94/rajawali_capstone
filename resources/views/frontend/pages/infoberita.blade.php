@@ -15,7 +15,7 @@
             <div class="col">
               <div class="card-body my-2">
                 <h3 class="card-title fw-bold">{{ $item->name }}</h3>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-body-secondary">{{ $item->created_at->format('d M Y') }}</small></p>
                 <p class="card-text">{{ mb_strimwidth($item->description, 0, 100, "..."); }}</p>
                 <a href="/detailberita/{{ $item->id }}" class="item"><i class="item-primary me-0"></i>Selengkapnya</a>
               </div>

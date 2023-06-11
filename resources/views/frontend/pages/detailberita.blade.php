@@ -17,7 +17,7 @@
                     </ol>
                 </nav>
                 <img src="{{ asset($berita->image) }}" class="card-img my-2 img-fluid mx-auto width-fit" alt="...">
-                <p class="card-text mt-1"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <p class="card-text mt-1"><small class="text-body-secondary">{{ $berita->created_at->format('d M Y') }}</small></p>
                 <p class="card-text mx-2">{{ $berita->description }}</p>
 
 

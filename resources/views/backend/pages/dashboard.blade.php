@@ -40,13 +40,12 @@
                   </ul>
                   <div>
                     <div class="btn-wrapper no-print">
-                      <a onclick="window.print()" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                      <button id="export" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</button>
+                      {{-- <a onclick="window.print()" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <button id="export" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</button> --}}
                     </div>
                   </div>
                 </div>
                 <div class="tab-content tab-content-basic">
-                  {{-- PASIEN  --}}
                   <div class="tab-pane fade show active" id="pasien" role="tabpanel" aria-labelledby="overview"> 
                     <div class="row">
                       <div class="col-sm-12 no-print">

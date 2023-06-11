@@ -198,10 +198,10 @@ class PenggunaController extends Controller
     {
         // dd($request->all(),$id);
         $wisata = Wisata::where('id', $id)->first();
-
+        
     	// cek validasi
-    	$komen = Comment::where('user_id', session('id'))->first();
-        // dd($komen);
+    	$komen = Comment::where('user_id', session('id'))->get();
+        // dd($komen, session('id'));
     	// simpan ke database comment
     	if($komen)
     	{
@@ -210,12 +210,15 @@ class PenggunaController extends Controller
             // $new_image = time() .'_'. $slug;
             // $image->move('uploads/comment/' ,$new_image);
            
-    		$comment = new comment;
+    		$comment = new Comment;
             $comment->wisata_id = $wisata->id;
 	    	$comment->user_id = session('id');
 	    	$comment->description = $request->description ;
 	    	$comment->image = 'aa';
 	    	$comment->save();
+        }else {
+            // Comments already exist for the user
+            // Handle the case where comments exist
         }
         
         return view('frontend.pages.detailwisata', compact('wisata','komen'));

@@ -23,7 +23,7 @@
     <div class="full-width">
         <div class="container text-center padding-top-xlg">
           <div class="row margin-top-xlg margin-bottom-xlg">
-            <h2 class="text-center margin-bottom-lg fw-bold">About Me</h2>
+            <h2 class="text-center margin-bottom-lg fw-bold">About Website</h2>
             <div class="col-5">
               <div class="col-15">
                 <img class="img-responsive center-block" src={{ asset('assets/frontend/css/images/BukitSeroja.jpg') }}>
