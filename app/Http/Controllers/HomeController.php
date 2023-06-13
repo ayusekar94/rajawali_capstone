@@ -27,7 +27,7 @@ class HomeController extends Controller
         return view('frontend.pages.infoberita',[
             'title' => 'Berita',
             'berita' => Berita::all(),
-        ]);  
+        ]);
     }
 
     // Detail Berita
@@ -35,7 +35,7 @@ class HomeController extends Controller
         return view('frontend.pages.detailberita',[
             'title' => 'Detail Berita',
             'berita' => Berita::find($id),
-        ]);  
+        ]);
     }
 
     // List Wisata
@@ -43,7 +43,7 @@ class HomeController extends Controller
         return view('frontend.pages.wisata',[
             'title' => 'Wisata List',
             'wisata' => Wisata::all(),
-        ]);  
+        ]);
     }
 
     // Detail Wisata
@@ -52,6 +52,6 @@ class HomeController extends Controller
             'title' => 'Wisata List',
             'wisata' => Wisata::find($id),
             'komen' => Comment::where('wisata_id',$id)->get(),
-        ]);  
+        ]);
     }
 }

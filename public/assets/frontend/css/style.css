@@ -1170,7 +1170,7 @@ a.button.button-wisata:hover {
 .social-icons a{
   background-color:#eceeef;
   color:#818a91;
-  font-size:16px;
+  font-size:20px;
   display:inline-block;
   line-height:44px;
   width:44px;
@@ -1186,8 +1186,8 @@ a.button.button-wisata:hover {
 .social-icons i{
     display:inline-block;
     text-align: center;
-    line-height:44px;
-    width:44px;
+    line-height:40px;
+    width:41px;
     height:44px;
     margin-right:8px;
 }
@@ -1204,22 +1204,15 @@ a.button.button-wisata:hover {
   width:34px;
   font-size:14px
 }
-.social-icons a.facebook:hover
+.social-icons a.email:hover
 {
-  background-color:#3b5998
+  background-color:#bb001b
 }
-.social-icons a.twitter:hover
+.social-icons a.instagram:hover
 {
-  background-color:#00aced
+  background-color:#8134af
 }
-.social-icons a.linkedin:hover
-{
-  background-color:#007bb6
-}
-.social-icons a.dribbble:hover
-{
-  background-color:#ea4c89
-}
+
 @media (max-width:767px)
 {
   .social-icons li.title
