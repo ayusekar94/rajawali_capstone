@@ -1204,22 +1204,15 @@ a.button.button-wisata:hover {
   width:34px;
   font-size:14px
 }
-.social-icons a.facebook:hover
+.social-icons a.email:hover
 {
-  background-color:#3b5998
+  background-color:#bb001b
 }
-.social-icons a.twitter:hover
+.social-icons a.instagram:hover
 {
-  background-color:#00aced
+  background-color:#8134af
 }
-.social-icons a.linkedin:hover
-{
-  background-color:#007bb6
-}
-.social-icons a.dribbble:hover
-{
-  background-color:#ea4c89
-}
+
 @media (max-width:767px)
 {
   .social-icons li.title
