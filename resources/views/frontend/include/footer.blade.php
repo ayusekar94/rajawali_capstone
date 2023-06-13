@@ -32,7 +32,7 @@
             <hr>
             <ul class="social-icons d-flex justify-content-center">
                 <li><a class="email" href="mailto:r0979158@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
-                <li><a class="instagram" href="https://www.instagram.com/gits_rajawalii15/"><i class="fa-brand fa-instagram"></i></a><li>
+                <li><a class="instagram" href="https://www.instagram.com/gits_rajawalii15/"><i class="fa-brands fa-instagram"></i></a><li>
               </ul>
         </div>
       </div>
