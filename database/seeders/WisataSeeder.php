@@ -25,7 +25,8 @@ class WisataSeeder extends Seeder
                                 tinggi yang menambah pesona keindahan alam sekitar telaga warna.',
                 'price' => 21000,
                 'rating'=> 5,
-                'location' =>'Desa Dieng Wetan, Kecamatan Kejajar, Kabupaten Wonosobo, Jawa Tengah.',
+                'latitude' => '-7.212274036955316',
+                'longitude' => '109.9151914902495',
                 'id_category' => 2,
             ],
             [
@@ -35,7 +36,8 @@ class WisataSeeder extends Seeder
                                  karena memiliki banyak spot foto kekinian dan tentunya instagramable bagi kaum muda.',
                 'price' => 15000,
                 'rating'=> 5,
-                'location' =>'Desa Tieng, Kecamatan Kejajar, Kabupaten Wonosobo',
+                'latitude' => '-7.225919894779383',
+                'longitude' => '109.93204476589864',
                 'id_category' => 1,
             ],
             [
@@ -45,7 +47,8 @@ class WisataSeeder extends Seeder
                                 yang menyajikan pemandangan sejuk, dan suasana yang tenang juga damai, sehingga dapat menyejukan mata.',                
                  'price' => 10000,
                 'rating'=> 5,
-                'location' => 'Desa Tambi, Kecamatan Kejajar, Kabupaten Wonosobo',
+                'latitude' => '-7.267012723594686',
+                'longitude' => '109.96004857026207',
                 'id_category' => 1,
             ],
             [
@@ -55,7 +58,8 @@ class WisataSeeder extends Seeder
                 dengan memiliki ketinggian sekitar 125 meter dengan ketinggian tersebut wisatawan dapat melihat kabut.',               
                 'price' => 15000,
                 'rating'=> 4,
-                'location' => 'Desa Mlandi, Kecamatan Garung, Kabupaten Wonosobo, Jawa Tengah.',
+                'latitude' => '-7.242360400965991',
+                'longitude' => '109.90708435240498',
                 'id_category' => 2,
             ],
             [
@@ -65,7 +69,8 @@ class WisataSeeder extends Seeder
                 paling enak dijadikan lokasi santuy sambil menikmati keindahan alam yang tersaji ketika cuaca cerah.', 
                 'price' => 10000,              
                 'rating'=> 5,
-                'location' => 'Desa Tlogo, Kecamatan Garung, Kabupaten Wonosobo',
+                'latitude' => '-7.263273127228672',
+                'longitude' => '109.9279080155511',
                 'id_category' => 1,
                 
             ],
@@ -76,7 +81,8 @@ class WisataSeeder extends Seeder
                 daya tarik dari Telaga Cebong ini adalah kawasan wisata yang ramai untuk berkemah.',
                 'price' => 15000,              
                 'rating'=> 4,
-                'location' => 'Desa Sembungan, Kecamatan Kejajar, Kabupaten Wonosobo',
+                'latitude' => '-7.235387083310799',
+                'longitude' => '109.92017157909011',
                 'id_category' => 2,
                 
             ],
@@ -87,7 +93,8 @@ class WisataSeeder extends Seeder
                  enak banget untuk dijadikan lokasi self healing.',               
                  'price' => 10000,              
                 'rating'=> 4,
-                'location' => 'Desa Maron, Kecamatan Garung, Kabupaten Wonosobo',
+                'latitude' => '-7.269022451634369',
+                'longitude' => '109.92612042842974',
                 'id_category' => 2,
                 
             ],
@@ -98,7 +105,8 @@ class WisataSeeder extends Seeder
                 Sinsu Park menjadi destinasi yang hits sejak awal diresmikan dan berada di area yang sangat luas.',            
                 'price' => 15000,              
                 'rating'=> 4,
-                'location' => 'Garung, Desa Reco, Kecamatan Kertek, Kabupaten Wonosobo',
+                'latitude' => '-7.345383003982833',
+                'longitude' => '110.02773937848826',
                 'id_category' => 1,
             ],
             [
@@ -108,7 +116,8 @@ class WisataSeeder extends Seeder
                  keindahan aliran air yang masih alami, Curug Winong memiliki tinggi sekitar 50 meter.',            
                 'price' => 5000,              
                 'rating'=> 4,
-                'location' => 'Desa Winongsari, Kecamatan Kaliwiro, Kabupaten Wonosobo',
+                'latitude' => '-7.459635979821192',
+                'longitude' => '109.89729259473756',
                 'id_category' => 2,
             ],
         ];
