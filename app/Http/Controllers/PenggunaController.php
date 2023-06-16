@@ -221,6 +221,6 @@ class PenggunaController extends Controller
             // Handle the case where comments exist
         }
         
-        return view('frontend.pages.detailwisata', compact('wisata','komen'));
+        return redirect("/detailwisata/$id");
     }
 }

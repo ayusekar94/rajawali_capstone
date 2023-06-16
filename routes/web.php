@@ -57,6 +57,7 @@ Route::resource('/category', CategoryController::class);
 Route::get('/wisata', [WisataController::class,'index'])->name('wisata.index');
 Route::post('/wisata', [WisataController::class,'store'])->name('wisata.store');
 Route::get('/pesanan', [PromosiController::class, 'pesanan']);
+Route::get('/pesanan/{id}', [PromosiController::class, 'show']);
 // verifikasi pembayaran
 Route::get('/verify', [PromosiController::class, 'verify']);
 Route::get('/block', [PromosiController::class, 'block']);

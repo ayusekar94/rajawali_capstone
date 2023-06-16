@@ -70,7 +70,38 @@
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
+        <p class="card-description" style="margin-top: 1%">
+            Location
+          </p>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Latitude</label>
+                <div class="col-sm-9">
+                  <input type="text" name="latitude" class="form-control" value="{{ $wisatas->latitude }}"/>
+                  @error('latitude')
+                    <code>
+                        {{ $message }}
+                    </code>
+                  @enderror
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Longitude</label>
+                <div class="col-sm-9">
+                  <input type="text" name="longitude" class="form-control" value="{{ $wisatas->longitude }}" />
+                  @error('longitude')
+                          <code>
+                            {{ $message }}
+                          </code>
+                            @enderror
+                </div>
+              </div>
+            </div>
+        </div>
+        {{-- <div class="mb-3">
             <label for="price" class="form-label">Location</label>
             <input type="text" class="form-control @error('location') is-invalid @enderror"
                 id="exampleInputPassword1" name="location" value="{{ $wisatas->location }}">
@@ -79,7 +110,7 @@
                     Lokasi tidak boleh kosong
                 </div>
             @enderror
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="category" class="form-label">Pilih Category</label>
             <select class="form-select @error('id_category') is-invalid @enderror" aria-label="Default select example"

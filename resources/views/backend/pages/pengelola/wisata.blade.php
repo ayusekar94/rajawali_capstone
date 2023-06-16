@@ -64,7 +64,7 @@
                   {{ $i->price}}
                 </td>
                 <td>
-                  {{ mb_strimwidth($i->location, 0, 10, "..."); }}
+                  {{ mb_strimwidth($i->latitude, 0, 5, "..."); }},{{ mb_strimwidth($i->longitude, 0, 5, "..."); }}
                 </td>
                 <td>
                    {{$i->category->name }}

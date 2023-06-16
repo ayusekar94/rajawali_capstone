@@ -75,15 +75,36 @@
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input type="text" class="form-control @error('location') is-invalid @enderror" id="exampleInputEmail1"
-            aria-describedby="emailHelp" name="location" placeholder="location" >
-            @error('location')
-                <div class="invalid-feedback">
-                    Lokasi tidak boleh kosong
+        <p class="card-description" style="margin-top: 1%">
+            Location
+          </p>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Latitude</label>
+                <div class="col-sm-9">
+                  <input type="text" name="latitude" class="form-control" />
+                  @error('latitude')
+                          <code>
+                            {{ $message }}
+                          </code>
+                            @enderror
                 </div>
-            @enderror
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Longitude</label>
+                <div class="col-sm-9">
+                  <input type="text" name="longitude" class="form-control" />
+                  @error('longitude')
+                          <code>
+                            {{ $message }}
+                          </code>
+                            @enderror
+                </div>
+              </div>
+            </div>
         </div>
         <div class="col-md-6 mb-3">
             <label for="category" class="form-label">Pilih Category</label>

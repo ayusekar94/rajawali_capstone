@@ -2,6 +2,10 @@
 @section('title','Detail Berita')
 @section('content')
 
+<style>
+	#map { height: 180px; }
+</style>
+
 @include('frontend.include.navbar')
 
 <section class="detailwisata">
@@ -45,7 +49,9 @@
         <div class="card border-0" style="background-color: #cdcdcd">
             <div class="card-body p-lg-4">
                 <h2 class="card-title fw-bold mb-2">Info Lokasi</h2>
-                <div>
+                <div id="map" style="height: 400px;"></div>
+                
+                {{-- <div id="map">
                     <iframe width="800" height="300" frameborder="0" src="https://www.bing.com/maps/embed?h=300&w=800&cp=-7.355971881063553~109.90476125968826&lvl=14.164355034644323&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
                     </iframe>
                     <p>{{ $wisata->location }}</p>
@@ -53,7 +59,7 @@
                        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=-7.355971881063553~109.90476125968826&amp;sty=r&amp;lvl=14.164355034644323&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
                        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=-7.355971881063553~109.90476125968826&amp;sty=r&amp;lvl=14.164355034644323&amp;rtp=~pos.-7.355971881063553_109.90476125968826____&amp;FORM=MBEDLD">Get Directions</a>
                    </div>
-               </div>
+               </div> --}}
                 {{-- 
                 <img width="1000" height="300" src="https://api.mapbox.com/styles/v1/mapbox/light-v9/static/pin-s+f00(30.055867,51.408365)/30.0558434,51.4082343,15,0,0/640x480?access_token=pk.eyJ1Ijoibmlja2ZpdHoiLCJhIjoiY2p3d2g3N2F5MDZ4azQwcG12dWticDB0diJ9.qnQV5QgYN_eDwg4uUdbO6Q" alt="Pripyat Amusement Park" class="static-map">
                 
@@ -128,3 +134,17 @@
 </section>
 
 @endsection
+@push('script')
+<script>
+    var map = L.map('map').setView([-7.35805671239407, 109.91492220542723], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var wisataData = <?= $maps; ?>  ;
+    L.marker([wisataData.latitude, wisataData.longitude]).addTo(map)
+        .bindPopup(wisataData.name)
+        .openPopup();
+</script>
+@endpush

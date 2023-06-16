@@ -68,7 +68,8 @@ class WisataController extends Controller
             'description' => 'required', 
             'rating' => 'required', 
             'price' => 'required', 
-            'location' => 'required', 
+            'latitude' => 'required', 
+            'longitude' => 'required', 
             'id_category' => 'required' 
         ]);
 
@@ -87,7 +88,8 @@ class WisataController extends Controller
         $wisatas->description= $request->description;
         $wisatas->rating= $request->rating;
         $wisatas->price = $request->price;
-        $wisatas->location = $request->location;
+        $wisatas->latitude = $request->latitude;
+        $wisatas->longitude = $request->longitude;
         $wisatas->id_category = $request->id_category;
         $wisatas->save();
         
@@ -138,7 +140,8 @@ class WisataController extends Controller
             'description' => 'required',
             'price' => 'required',
             'rating' => 'required',
-            'location' => 'required',
+            'latitude' => 'required', 
+            'longitude' => 'required', 
             'id_category' => 'required'
         ]);
 
@@ -160,7 +163,8 @@ class WisataController extends Controller
         $wisatas->description= $request->description;
         $wisatas->rating= $request->rating;
         $wisatas->price = $request->price;
-        $wisatas->location = $request->location;
+        $wisatas->latitude = $request->latitude;
+        $wisatas->longitude = $request->longitude;
         $wisatas->id_category = $request->id_category;
         $wisatas->save();
         

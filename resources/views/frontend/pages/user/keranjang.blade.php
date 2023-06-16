@@ -11,7 +11,7 @@
         <div class="mt-5">
             
         </div>
-        <h1>Keranjang Tiket</h1>
+        <h1>Tiket yang Dipesan</h1>
         @if(!empty($cart))
             @foreach($transaksi as $item)
                 <div class="ticket mt-3">
@@ -65,7 +65,7 @@
             </form>
           </div>
         </div>
-      </div>
+    </div>
 </body>
 </html>
 @include('frontend.include.footer')

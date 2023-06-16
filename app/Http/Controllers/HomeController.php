@@ -51,7 +51,9 @@ class HomeController extends Controller
         return view('frontend.pages.detailwisata',[
             'title' => 'Wisata List',
             'wisata' => Wisata::find($id),
+            'maps' => json_encode(Wisata::find($id)),
             'komen' => Comment::where('wisata_id',$id)->get(),
         ]);  
     }
+
 }

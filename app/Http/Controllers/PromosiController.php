@@ -53,9 +53,11 @@ class PromosiController extends Controller
 
     public function show($id)
     {
-        //
-    }
+        $data ['title'] = 'Transaksi';
+        $data['transaksi'] = Transaksi::with('cart', 'wisata')->find($id);
 
+    	return view('backend.pages.pengelola.pesanan_show', $data);
+    }
     public function edit($id)
     {
 

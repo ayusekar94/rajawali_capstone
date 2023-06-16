@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Wisata extends Model
 {
@@ -15,9 +16,17 @@ class Wisata extends Model
         'description',
         'price',
         'rating',
-        'location',
+        'latitude',
+        'longitude',
         'id_category'
     ];
+
+    // public function get($id){
+    //     $results = DB::table('wisatas')
+    //         ->select('name', 'latitude', 'longitude')
+    //         ->find($id);
+    //     return $results;
+    // }
 
     public function category()
     {
